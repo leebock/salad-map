@@ -7,6 +7,7 @@
 	var GLOBAL_CLASS_USETOUCH = "touch";
 
 	var SPREADSHEET_URL_PROVIDERS =  "resources/data/providers.csv";
+	var SPREADSHEET_URL_INGREDIENTS =  "resources/data/ingredients.csv";
 
 	var HILLSHADE_SERVICE_URL = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/";
 	var VECTOR_BASEMAP_ID = "fc3fec26b9ef44ae95674eed0a4a92ff";
@@ -14,7 +15,9 @@
 	var _map;
 	var _layerMarkers;
 
-	var _providers;	
+	var _providers;
+	var _ingredients;
+
 	var _selected;
 
 	$(document).ready(function() {
@@ -53,10 +56,47 @@
 				header: true,
 				download: true,
 				complete: function(data) {
+
 					_providers = $.map(
 						$.grep(data.data, function(value){return value.Lat && value.Long;}), 
 						function(value, index){return new Provider(value, index);}
 					);
+
+					$.each(
+						_providers, 
+						function(index, record) {
+
+							L.marker(
+								record.getLatLng(), 
+								{
+									riseOnHover: true
+								}
+							)
+								.bindTooltip(record.getName())
+								.addTo(_layerMarkers)
+								.key = record.getID();
+
+						}
+					);
+
+					_map.fitBounds(_layerMarkers.getBounds());
+
+					finish();
+				}
+			}
+		);
+
+		Papa.parse(
+			SPREADSHEET_URL_INGREDIENTS, 
+			{
+				header: true,
+				download: true,
+				complete: function(data) {
+					_ingredients = $.map(
+						data.data, 
+						function(value, index){return new Ingredient(value, index);}
+					);
+					$.each(_ingredients, function(index, value){console.log(value.getName());});
 					finish();
 				}
 			}
@@ -65,25 +105,10 @@
 		function finish()
 		{
 
-			$.each(
-				_providers, 
-				function(index, record) {
+			if (!_providers || !_ingredients) {
+				return;
+			}
 
-					L.marker(
-						record.getLatLng(), 
-						{
-							riseOnHover: true
-						}
-					)
-						.bindPopup(record.getName(), {closeButton: false})
-						.bindTooltip(record.getName())
-						.addTo(_layerMarkers)
-						.key = record.getID();
-
-				}
-			);
-
-			_map.fitBounds(_layerMarkers.getBounds());
 
 			// one time check to see if touch is being used
 
@@ -109,6 +134,24 @@
 			_providers, 
 			function(value){return value.getID() === e.layer.key;}
 		).shift();
+
+		L.popup({closeButton: false, offset: L.point(0, -25)})
+	    .setLatLng(_selected.getLatLng())
+	    .setContent(
+	    	"<b>"+_selected.getName()+"</b>"+
+	    	"<br />"+
+	    	$.map(
+		    	$.grep(
+		    		_ingredients, 
+		    		function(ingredient) {
+		    			return $.inArray(_selected.getName(), ingredient.getProviders()) > -1;
+		    		}
+		    	),
+		    	function(value){return value.getName();}
+	    	)
+	    )
+	    .openOn(_map);		
+
 	}
 
 	/***************************************************************************
