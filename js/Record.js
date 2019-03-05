@@ -11,7 +11,7 @@ Record.prototype.getID = function()
 
 Record.prototype.getTitle = function()
 {
-	return this._json.Location;
+	return this._json.Name;
 };
 
 Record.prototype.getText = function()
