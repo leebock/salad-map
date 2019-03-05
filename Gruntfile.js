@@ -1,12 +1,10 @@
 'use strict';
-var packagejson = require('./package.json');
 
 module.exports = function (grunt) {
  
   // Configuration
 
   grunt.initConfig({
-    pkg: packagejson,
     jshint: {
       build: [
         'js/*.js'
