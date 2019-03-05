@@ -9,30 +9,15 @@ Record.prototype.getID = function()
 	return this._id;
 };
 
-Record.prototype.getTitle = function()
+Record.prototype.getName = function()
 {
 	return this._json.Name;
 };
 
-Record.prototype.getText = function()
+Record.prototype.getCity = function()
 {
-	return this._json.Text;
-};
-
-Record.prototype.getHint = function()
-{
-	return this._json.Hint;
-};
-
-Record.prototype.getExclamation = function()
-{
-	return this._json.Exclamation;
-};
-
-Record.prototype.getImageURL = function()
-{
-	return this._json["Image-URL"];
-};
+	return this._json.City;	
+}
 
 Record.prototype.getLatLng = function()
 {

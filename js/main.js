@@ -52,9 +52,8 @@
 				header: true,
 				download: true,
 				complete: function(data) {
-					_records = $.grep(data.data, function(value){return value.Lat && value.Long;});
 					_records = $.map(
-						_records, 
+						$.grep(data.data, function(value){return value.Lat && value.Long;}), 
 						function(value, index){return new Record(value, index);}
 					);
 					finish();
@@ -75,8 +74,8 @@
 							riseOnHover: true
 						}
 					)
-						.bindPopup(record.getTitle(), {closeButton: false})
-						.bindTooltip(record.getTitle())
+						.bindPopup(record.getName(), {closeButton: false})
+						.bindTooltip(record.getName())
 						.addTo(_layerMarkers)
 						.key = record.getID();
 
