@@ -91,6 +91,6 @@
         "L": false,
         "Papa": false,
         "SocialButtonBar": false,
-        "Record": false
+        "Provider": false
  	}        // additional predefined global variables
 }

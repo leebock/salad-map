@@ -6,14 +6,15 @@
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
 
-	var SPREADSHEET_URL =  "resources/data/providers.csv";
+	var SPREADSHEET_URL_PROVIDERS =  "resources/data/providers.csv";
+
 	var HILLSHADE_SERVICE_URL = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/";
 	var VECTOR_BASEMAP_ID = "fc3fec26b9ef44ae95674eed0a4a92ff";
 
 	var _map;
 	var _layerMarkers;
 
-	var _records;	
+	var _providers;	
 	var _selected;
 
 	$(document).ready(function() {
@@ -47,14 +48,14 @@
 		}
 
 		Papa.parse(
-			SPREADSHEET_URL, 
+			SPREADSHEET_URL_PROVIDERS, 
 			{
 				header: true,
 				download: true,
 				complete: function(data) {
-					_records = $.map(
+					_providers = $.map(
 						$.grep(data.data, function(value){return value.Lat && value.Long;}), 
-						function(value, index){return new Record(value, index);}
+						function(value, index){return new Provider(value, index);}
 					);
 					finish();
 				}
@@ -65,7 +66,7 @@
 		{
 
 			$.each(
-				_records, 
+				_providers, 
 				function(index, record) {
 
 					L.marker(
@@ -105,7 +106,7 @@
 	{
 		$(".leaflet-tooltip").remove();
 		_selected = $.grep(
-			_records, 
+			_providers, 
 			function(value){return value.getID() === e.layer.key;}
 		).shift();
 	}
