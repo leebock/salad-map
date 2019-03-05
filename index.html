@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+   <!--
+     | Version 10.1.1
+     | Copyright 2012 Esri
+     |
+     | Licensed under the Apache License, Version 2.0 (the "License");
+     | you may not use this file except in compliance with the License.
+     | You may obtain a copy of the License at
+     |
+     |    http://www.apache.org/licenses/LICENSE-2.0
+     |
+     | Unless required by applicable law or agreed to in writing, software
+     | distributed under the License is distributed on an "AS IS" BASIS,
+     | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     | See the License for the specific language governing permissions and
+     | limitations under the License.
+    -->	
+
+	<meta charset="utf-8">
+
+	<title>Boilerplate</title>
+
+	<meta name="author" content="Esri Story Maps">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<!--Facebook Open Graph-->
+	<meta property="og:title" content="" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:site_name" content="Esri" />
+	<meta property="og:description" content=""/>
+	<meta property="fb:app_id" content="475867552452282" />
+	<!--End Facebook-->
+
+	<!--Twitter Card Data-->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@EsriStoryMaps">
+	<!--Twitter Card Data-->	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link type="image/ico" rel="shortcut icon" href="resources/favicon.ico">
+	<link type="image/ico" rel="icon"  href="resources/favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  		crossorigin=""/>
+
+	<link rel="stylesheet" href="https://unpkg.com/mapbox-gl@0.44.1/dist/mapbox-gl.css"/>
+
+	<link rel="stylesheet" href="//unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.css" />		
+	<link rel="stylesheet" href="css/main.css">	
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+			crossorigin="anonymous"></script>
+
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  			integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  			crossorigin=""></script>
+
+	<!-- Load Esri Leaflet from CDN -->
+	<script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
+    		integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
+    		crossorigin=""></script>
+
+	<!-- load the latest release from the cdn automatically -->
+	<script src="https://unpkg.com/mapbox-gl@0.44.1/dist/mapbox-gl.js"></script>
+	<script src="https://unpkg.com/esri-leaflet-vector@1.0.7/dist/esri-leaflet-vector.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.1/papaparse.min.js"></script>
+
+
+	<script src="//unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>	
+
+	<script src="js/SocialButtonBar.js"></script>
+	<script src="js/Record.js"></script>
+	<script src="js/main.js"></script>
+
+	<!--Google Analytics Start-->
+	<script type="text/javascript">
+	  if (window.location.href.toLowerCase().indexOf("storymaps.esri.com") >= 0) {
+	      var _gaq = _gaq || [];
+	      _gaq.push(['_setAccount', 'UA-26529417-1']);
+	      _gaq.push(['_trackPageview']);
+	    
+	      (function() {
+	         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	      })();
+	  }
+	</script>
+	<!--Google Analytics End-->	
+
+    <!-- Adobe Analytics Start-->
+	<script src="//assets.adobedtm.com/2e9cd01e19dc5ac4867e752f17a2f1ea1923e5af/satelliteLib-0ed1001fd441a838aefe8e755be42aaafddcc46b.js"></script>		
+    <!-- Adobe Analytics End-->
+
+</head>
+
+<body>
+
+	<div class="banner">
+		<a id="logo" href="https://www.esri.com" target="_blank">
+			<img src="resources/esri-logo.png">
+		</a>
+		<h1 id="title">Geography Treasure Hunt</h1>
+		<div class="social-button-bar"></div>
+	</div>    
+    <div id="map"></div>
+
+	<!-- Adobe Analytics Start -->
+	<script type="text/javascript" src="//go.pardot.com/dcjs/82202/1182/dc.js"></script>
+	<script type="text/javascript">_satellite.pageBottom();</script>	    
+    <!-- Adobe Analytics End-->
+   
+</body>
+
+</html>

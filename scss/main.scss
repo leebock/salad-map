@@ -1,0 +1,71 @@
+$WIDTH-THRESHOLD: 768px;
+$GLOBAL-CLASS-USETOUCH: ".touch";
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+
+  /* keeps things from getting wiggy on touch */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+}
+
+body {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* hides adobe analytics white stripe */
+
+div.adsbox {
+  display: none;
+}
+
+a {
+  cursor: pointer;
+}
+
+@import "Banner";
+
+.banner {
+  flex-shrink: 0;
+}
+
+#map {
+
+  background-color: white;
+  flex-grow: 1;
+  flex-shrink: 1;
+  order: 1;
+
+  .easy-button-button {
+    font-size: 18px;
+    cursor: pointer;  
+  }
+
+  .leaflet-popup-content {
+    text-align: center;
+  }  
+
+}
