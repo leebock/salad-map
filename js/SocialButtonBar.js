@@ -13,7 +13,7 @@ function SocialButtonBar()
 				.addClass("story-map-link")
 				.attr("href", "https://storymaps.arcgis.com/en/gallery/#s=0&md=storymaps-apps:custom")
 				.attr("target", "_blank")
-				.text("A Story Maps Labs Joint")
+				.text("A Story Maps Labs Project")
 		)
 		.append(
 			$("<a>")
