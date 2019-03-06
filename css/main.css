@@ -80,15 +80,137 @@ a {
 .banner {
   flex-shrink: 0; }
 
-#map {
-  background-color: white;
+div#main {
+  position: relative;
   flex-grow: 1;
   flex-shrink: 1;
-  order: 1; }
-  #map .easy-button-button {
-    font-size: 18px;
-    cursor: pointer; }
-  #map .leaflet-popup-content {
-    text-align: center; }
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  /* results-container */ }
+  div#main #map {
+    background-color: #eff3ff;
+    flex: 1; }
+    div#main #map .easy-button-button {
+      font-size: 18px;
+      cursor: pointer; }
+    div#main #map .leaflet-popup-content {
+      text-align: center; }
+  div#main div#search-container {
+    position: absolute;
+    z-index: 2000;
+    right: 20px;
+    top: 20px;
+    background-color: white;
+    padding: 10px; }
+    @media (max-width: 768px) {
+      div#main div#search-container {
+        position: relative;
+        right: inherit;
+        top: inherit; } }
+    div#main div#search-container input {
+      font-size: 24px;
+      border: none;
+      padding: 7px;
+      width: 300px;
+      border: solid;
+      border-width: 1px; }
+      @media (max-width: 768px) {
+        div#main div#search-container input {
+          width: 100%; } }
+      div#main div#search-container input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #bababa;
+        opacity: 1;
+        /* Firefox */ }
+      div#main div#search-container input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #bababa; }
+      div#main div#search-container input::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #bababa; }
+    div#main div#search-container div.awesomplete {
+      font-size: 22px; }
+      div#main div#search-container div.awesomplete ul {
+        max-height: 50vh;
+        overflow-y: auto; }
+      @media (max-width: 768px) {
+        div#main div#search-container div.awesomplete {
+          position: relative;
+          width: 100%; } }
+  div#main div#results-container {
+    position: absolute;
+    z-index: 1000;
+    right: 20px;
+    top: 110px;
+    width: 320px;
+    display: none;
+    background-color: white;
+    border-width: 1px;
+    max-height: calc(100% - 150px);
+    flex-direction: column;
+    padding: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 22px; }
+    @media (max-width: 768px) {
+      div#main div#results-container {
+        width: 100%;
+        max-height: 45%;
+        position: relative;
+        right: inherit;
+        top: inherit;
+        order: 1; } }
+    div#main div#results-container #header {
+      flex-shrink: 0;
+      display: flex;
+      padding: 10px;
+      border-bottom-style: solid;
+      border-bottom-width: 1px; }
+      div#main div#results-container #header span:nth-child(1) {
+        flex: 1; }
+    div#main div#results-container ul#results {
+      flex-shrink: 1;
+      list-style-type: none;
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 0px;
+      -moz-margin-start: 0px;
+      -moz-margin-end: 0px;
+      -moz-padding-start: 0px;
+      -moz-padding-end: 0px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; }
+      div#main div#results-container ul#results li {
+        padding: 10px;
+        background-color: #efefef;
+        border-top-style: solid;
+        border-top-width: 1px; }
+        div#main div#results-container ul#results li:first-child {
+          border-top-style: none; }
+        div#main div#results-container ul#results li:last-child {
+          border-bottom-style: solid;
+          border-bottom-width: 1px; }
+        div#main div#results-container ul#results li:hover {
+          background-color: aliceblue; }
+        div#main div#results-container ul#results li.selected.color-code-1 {
+          background-color: rgba(255, 0, 0, 0.3); }
+        div#main div#results-container ul#results li.selected.color-code-2 {
+          background-color: rgba(0, 0, 255, 0.3); }
+        div#main div#results-container ul#results li.selected.color-code-3 {
+          background-color: rgba(255, 255, 0, 0.3); }
+        div#main div#results-container ul#results li.selected.color-code-4 {
+          background-color: rgba(0, 255, 0, 0.3); }
+        div#main div#results-container ul#results li a {
+          color: black;
+          text-decoration: none;
+          display: flex; }
+          div#main div#results-container ul#results li a span:nth-child(1) {
+            flex: 1;
+            font-weight: bold; }
+
+/*div#main*/
 
 /*# sourceMappingURL=main.css.map */
