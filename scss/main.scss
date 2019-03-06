@@ -94,47 +94,22 @@ div#main {
       top: inherit;
     }
 
-    input {
+    select {
 
       font-size: 24px;
       border: none;
       padding: 7px;
-      width: 300px;
+      width: 430px;
 
       @media (max-width: $WIDTH-THRESHOLD) {
+        font-size: 16px;
         width: 100%;
       }
 
       border: solid;
       border-width: 1px;
 
-      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-          color: #bababa;
-          opacity: 1; /* Firefox */
-      }
-
-      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-          color: #bababa;
-      }
-
-      &::-ms-input-placeholder { /* Microsoft Edge */
-          color: #bababa;
-      }
-
     }
-
-    div.awesomplete  {
-      font-size: 22px;
-      ul {
-        max-height: 50vh;
-        overflow-y: auto;
-      }
-      @media (max-width: $WIDTH-THRESHOLD) {
-        position: relative;
-        width: 100%;
-      }
-    }
-
   }
 
   div#results-container {

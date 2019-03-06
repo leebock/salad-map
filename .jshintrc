@@ -92,6 +92,7 @@
         "Papa": false,
         "SocialButtonBar": false,
         "Provider": false,
-        "Ingredient": false
+        "Ingredient": false,
+        "Creation": false
  	}        // additional predefined global variables
 }

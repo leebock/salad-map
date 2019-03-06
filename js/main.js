@@ -6,8 +6,9 @@
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
 
-	var SPREADSHEET_URL_PROVIDERS =  "resources/data/providers.csv";
-	var SPREADSHEET_URL_INGREDIENTS =  "resources/data/ingredients.csv";
+	var SPREADSHEET_URL_PROVIDERS = "resources/data/providers.csv";
+	var SPREADSHEET_URL_INGREDIENTS = "resources/data/ingredients.csv";
+	var SPREADSHEET_URL_CREATIONS = "resources/data/creations.csv";
 
 	var HILLSHADE_SERVICE_URL = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/";
 	var VECTOR_BASEMAP_ID = "fc3fec26b9ef44ae95674eed0a4a92ff";
@@ -17,6 +18,7 @@
 
 	var _providers;
 	var _ingredients;
+	var _creations;
 
 	var _selected;
 
@@ -51,6 +53,22 @@
 		}
 
 		Papa.parse(
+			SPREADSHEET_URL_CREATIONS, 
+			{
+				header: true,
+				download: true,
+				complete: function(data) {
+					_creations = $.map(
+						data.data, 
+						function(value, index){return new Creation(value, index);}
+					);
+					$.each(_creations, function(index, value){$("select#creations").append($("<option>").html(value.getName()));});
+					finish();
+				}
+			}
+		);
+
+		Papa.parse(
 			SPREADSHEET_URL_INGREDIENTS, 
 			{
 				header: true,
@@ -60,7 +78,6 @@
 						data.data, 
 						function(value, index){return new Ingredient(value, index);}
 					);
-					$.each(_ingredients, function(index, value){console.log(value.getName());});
 					finish();
 				}
 			}
@@ -105,10 +122,9 @@
 		function finish()
 		{
 
-			if (!_providers || !_ingredients) {
+			if (!_creations || !_providers || !_ingredients) {
 				return;
 			}
-
 
 			// one time check to see if touch is being used
 

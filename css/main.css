@@ -108,35 +108,16 @@ div#main {
         position: relative;
         right: inherit;
         top: inherit; } }
-    div#main div#search-container input {
+    div#main div#search-container select {
       font-size: 24px;
       border: none;
       padding: 7px;
-      width: 300px;
+      width: 430px;
       border: solid;
       border-width: 1px; }
       @media (max-width: 768px) {
-        div#main div#search-container input {
-          width: 100%; } }
-      div#main div#search-container input::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: #bababa;
-        opacity: 1;
-        /* Firefox */ }
-      div#main div#search-container input:-ms-input-placeholder {
-        /* Internet Explorer 10-11 */
-        color: #bababa; }
-      div#main div#search-container input::-ms-input-placeholder {
-        /* Microsoft Edge */
-        color: #bababa; }
-    div#main div#search-container div.awesomplete {
-      font-size: 22px; }
-      div#main div#search-container div.awesomplete ul {
-        max-height: 50vh;
-        overflow-y: auto; }
-      @media (max-width: 768px) {
-        div#main div#search-container div.awesomplete {
-          position: relative;
+        div#main div#search-container select {
+          font-size: 16px;
           width: 100%; } }
   div#main div#results-container {
     position: absolute;
