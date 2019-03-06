@@ -51,6 +51,22 @@
 		}
 
 		Papa.parse(
+			SPREADSHEET_URL_INGREDIENTS, 
+			{
+				header: true,
+				download: true,
+				complete: function(data) {
+					_ingredients = $.map(
+						data.data, 
+						function(value, index){return new Ingredient(value, index);}
+					);
+					$.each(_ingredients, function(index, value){console.log(value.getName());});
+					finish();
+				}
+			}
+		);
+
+		Papa.parse(
 			SPREADSHEET_URL_PROVIDERS, 
 			{
 				header: true,
@@ -81,22 +97,6 @@
 
 					_map.fitBounds(_layerMarkers.getBounds());
 
-					finish();
-				}
-			}
-		);
-
-		Papa.parse(
-			SPREADSHEET_URL_INGREDIENTS, 
-			{
-				header: true,
-				download: true,
-				complete: function(data) {
-					_ingredients = $.map(
-						data.data, 
-						function(value, index){return new Ingredient(value, index);}
-					);
-					$.each(_ingredients, function(index, value){console.log(value.getName());});
 					finish();
 				}
 			}
