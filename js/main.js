@@ -20,8 +20,6 @@
 	var _ingredients;
 	var _creations;
 
-	var _selected;
-
 	$(document).ready(function() {
 
 		new SocialButtonBar();
@@ -62,7 +60,8 @@
 						data.data, 
 						function(value, index){return new Creation(value, index);}
 					);
-					$.each(_creations, function(index, value){$("select#creations").append($("<option>").html(value.getName()));});
+					var optgroup = $("<optgroup>").attr("label", "Salad Creations").appendTo($("select#creations"));
+					$.each(_creations, function(index, value){$(optgroup).append($("<option>").html(value.getName()));});
 					finish();
 				}
 			}
@@ -95,25 +94,8 @@
 						function(value, index){return new Provider(value, index);}
 					);
 
-					$.each(
-						_providers, 
-						function(index, record) {
-
-							L.marker(
-								record.getLatLng(), 
-								{
-									riseOnHover: true
-								}
-							)
-								.bindTooltip(record.getName())
-								.addTo(_layerMarkers)
-								.key = record.getID();
-
-						}
-					);
-
+					loadMarkers(_providers);
 					_map.fitBounds(_layerMarkers.getBounds());
-
 					finish();
 				}
 			}
@@ -129,6 +111,7 @@
 			// one time check to see if touch is being used
 
 			$(document).one("touchstart", function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);});
+			$("select#creations").change(select_onChange);
 
 		}
 
@@ -140,27 +123,47 @@
 
 	function onMapClick(e)
 	{
-		_selected = null;
+	}
+
+	function select_onChange(event) {
+		var providers = _providers;
+		if (event.target.value.toLowerCase() !== "all providers") {
+			var salad = $.grep(
+				_creations, 
+				function(value){return value.getName() === event.target.value;}
+			).shift();
+			providers = $.grep(
+				providers, 
+				function(provider){
+					return $.grep(
+						provider.getProducts(), 
+						function(product){return $.inArray(product, salad.getIngredients())  > -1;}
+					).length;
+				}
+			);
+		}
+		loadMarkers(providers);
+		//_map.flyToBounds(_layerMarkers.getBounds());		
 	}
 
 	function onMarkerClick(e)
 	{
 		$(".leaflet-tooltip").remove();
-		_selected = $.grep(
+		var provider = $.grep(
 			_providers, 
 			function(value){return value.getID() === e.layer.key;}
 		).shift();
 
 		L.popup({closeButton: false, offset: L.point(0, -25)})
-	    .setLatLng(_selected.getLatLng())
+	    .setLatLng(provider.getLatLng())
 	    .setContent(
-	    	"<b>"+_selected.getName()+"</b>"+
+	    	"<b>"+provider.getName()+"</b>"+
 	    	"<br />"+
 	    	$.map(
 		    	$.grep(
 		    		_ingredients, 
 		    		function(ingredient) {
-		    			return $.inArray(_selected.getName(), ingredient.getProviders()) > -1;
+		    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
 		    		}
 		    	),
 		    	function(value){return value.getName();}
@@ -181,5 +184,28 @@
 	/***************************************************************************
 	******************************** FUNCTIONS *********************************
 	***************************************************************************/
+
+	function loadMarkers(providers)
+	{
+
+		_layerMarkers.clearLayers();
+		$.each(
+			providers, 
+			function(index, record) {
+
+				L.marker(
+					record.getLatLng(), 
+					{
+						riseOnHover: true
+					}
+				)
+					.bindTooltip(record.getName())
+					.addTo(_layerMarkers)
+					.key = record.getID();
+
+			}
+		);
+
+	}
 
 })();

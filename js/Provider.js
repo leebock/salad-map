@@ -23,3 +23,8 @@ Provider.prototype.getLatLng = function()
 {
 	return L.latLng(this._json.Lat, this._json.Long);
 };
+
+Provider.prototype.getProducts = function()
+{
+	return this._json.Ingredients.split(",");
+};
