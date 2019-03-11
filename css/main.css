@@ -142,14 +142,8 @@ div#main {
         right: inherit;
         top: inherit;
         order: 1; } }
-    div#main div#results-container #header {
-      flex-shrink: 0;
-      display: flex;
-      padding: 10px;
-      border-bottom-style: solid;
-      border-bottom-width: 1px; }
-      div#main div#results-container #header span:nth-child(1) {
-        flex: 1; }
+    div#main div#results-container #preface {
+      margin-bottom: 10px; }
     div#main div#results-container ul#results {
       flex-shrink: 1;
       list-style-type: none;
@@ -176,14 +170,8 @@ div#main {
           border-bottom-width: 1px; }
         div#main div#results-container ul#results li:hover {
           background-color: aliceblue; }
-        div#main div#results-container ul#results li.selected.color-code-1 {
-          background-color: rgba(255, 0, 0, 0.3); }
-        div#main div#results-container ul#results li.selected.color-code-2 {
+        div#main div#results-container ul#results li.selected {
           background-color: rgba(0, 0, 255, 0.3); }
-        div#main div#results-container ul#results li.selected.color-code-3 {
-          background-color: rgba(255, 255, 0, 0.3); }
-        div#main div#results-container ul#results li.selected.color-code-4 {
-          background-color: rgba(0, 255, 0, 0.3); }
         div#main div#results-container ul#results li a {
           color: black;
           text-decoration: none;

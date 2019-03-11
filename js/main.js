@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	//var WIDTH_THRESHOLD = 768;
+	var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
 
@@ -43,7 +43,7 @@
 				states:[
 					{
 						icon: "fa fa-home",
-						onClick: function(btn, map){_map.fitBounds(_layerMarkers.getBounds());},
+						onClick: function(btn, map){_map.fitBounds(_layerMarkers.getBounds().pad(0.1));},
 						title: "Full extent"
 					}
 				]
@@ -95,7 +95,7 @@
 					);
 
 					loadMarkers(_providers);
-					_map.fitBounds(_layerMarkers.getBounds());
+					_map.fitBounds(_layerMarkers.getBounds().pad(0.1));
 					finish();
 				}
 			}
@@ -123,12 +123,15 @@
 
 	function onMapClick(e)
 	{
+		$("ul#results li").removeClass("selected");		
 	}
 
 	function select_onChange(event) {
+		_map.closePopup();
 		var providers = _providers;
+		var salad;
 		if (event.target.value.toLowerCase() !== "all providers") {
-			var salad = $.grep(
+			salad = $.grep(
 				_creations, 
 				function(value){return value.getName() === event.target.value;}
 			).shift();
@@ -141,9 +144,21 @@
 					).length;
 				}
 			);
+			$("div#results-container").css("display", "flex");			
+			loadResults(salad);
+		} else {
+			$("div#results-container").hide();			
 		}
+
 		loadMarkers(providers);
-		//_map.flyToBounds(_layerMarkers.getBounds());		
+		_map.invalidateSize();
+		_map.flyToBounds(
+			_layerMarkers.getBounds().pad(0.1),
+			$(window).width() > WIDTH_THRESHOLD && salad ? 
+				{paddingBottomRight: [340, 0]} : 
+				null					
+		);		
+
 	}
 
 	function onMarkerClick(e)
@@ -185,6 +200,27 @@
 	    )
 	    .openOn(_map);		
 
+		$("ul#results li").removeClass("selected");
+		$(
+			$.grep(
+				$("ul#results li"),
+				function(li) {
+					return $.inArray(
+						$(li).find("a").text(), 			
+				    	$.map(
+					    	$.grep(
+					    		ingredients, 
+					    		function(ingredient) {
+					    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
+					    		}
+					    	),
+					    	function(value){return value.getName();}
+				    	)
+					) > -1;
+				}
+			).shift()
+		).addClass("selected");
+
 	}
 
 	/***************************************************************************
@@ -221,5 +257,58 @@
 		);
 
 	}
+
+	function loadResults(salad)
+	{
+		$("ul#results").empty();
+		$("div#results-container div#preface").html(
+			"The <b>"+salad.getName()+"</b> salad "+
+			"consists of the following ingredients:"
+		);
+
+		$.each(
+			salad.getIngredients(), 
+			function(index, ingredient) {
+				$("<li>")
+					.append(
+						$("<a>")
+							.append(ingredient)
+							.attr("href", "#")
+					)
+					.appendTo($("ul#results"));				
+			}
+		);
+
+		$("ul#results li a").click(
+			function(event) {
+				$("ul#results li").removeClass("selected");
+				$(this).parent().addClass("selected");
+				var ingredient =  $.grep(
+					_ingredients, 
+					function(value) {
+						return value.getName() === $(event.target).text();
+					}
+				).shift();
+				var provider = $.grep(
+					_providers,
+					function(value) {
+						return $.inArray(value.getName(), ingredient.getProviders()) > -1;
+					}
+				).shift(); // todo: handle multiples
+
+				L.popup({closeButton: false, offset: L.point(0, -25)})
+			    .setLatLng(provider.getLatLng())
+			    .setContent(
+			    	"<b>"+provider.getName()+"</b>"+
+			    	"<br />"+ingredient.getName()
+			    )
+			    .openOn(_map);		
+
+			}
+		);
+
+
+	}
+
 
 })();

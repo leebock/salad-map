@@ -141,15 +141,8 @@ div#main {
     margin-bottom: 0px;
     font-size: 22px;
 
-    #header {
-      flex-shrink: 0;
-      display: flex;
-      padding: 10px;
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      span:nth-child(1) {
-        flex: 1;
-      }
+    #preface {
+      margin-bottom: 10px;
     }
 
     ul#results {
@@ -186,18 +179,7 @@ div#main {
           background-color: aliceblue;
         }
         &.selected {
-          &.color-code-1 {
-            background-color: rgba(255,0,0,0.3);
-          }
-          &.color-code-2 {
-            background-color: rgba(0,0,255,0.3);
-          }
-          &.color-code-3 {
-            background-color: rgba(255,255,0,0.3);
-          }
-          &.color-code-4 {
-            background-color: rgba(0,255,0,0.3);
-          }
+          background-color: rgba(0,0,255,0.3);
         }        
         a {
           color: black;
