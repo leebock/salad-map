@@ -154,6 +154,20 @@
 			function(value){return value.getID() === e.layer.key;}
 		).shift();
 
+		var ingredients = _ingredients;
+		if ($("#creations").val().toLowerCase() !== "all providers") {
+			var salad = $.grep(
+				_creations, 
+				function(value){return value.getName() === $("#creations").val();}
+			).shift();
+			ingredients = $.grep(
+				ingredients, 
+				function(ingredient) {
+					return $.inArray(ingredient.getName(), salad.getIngredients()) > -1;
+				}
+			);
+		}
+
 		L.popup({closeButton: false, offset: L.point(0, -25)})
 	    .setLatLng(provider.getLatLng())
 	    .setContent(
@@ -161,7 +175,7 @@
 	    	"<br />"+
 	    	$.map(
 		    	$.grep(
-		    		_ingredients, 
+		    		ingredients, 
 		    		function(ingredient) {
 		    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
 		    		}
