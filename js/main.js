@@ -43,7 +43,7 @@
 				states:[
 					{
 						icon: "fa fa-home",
-						onClick: function(btn, map){_map.fitBounds(_layerMarkers.getBounds().pad(0.1));},
+						onClick: function(btn, map){zoomToMarkers();},
 						title: "Full extent"
 					}
 				]
@@ -95,7 +95,7 @@
 					);
 
 					loadMarkers(_providers);
-					_map.fitBounds(_layerMarkers.getBounds().pad(0.1));
+					zoomToMarkers();
 					finish();
 				}
 			}
@@ -152,12 +152,7 @@
 
 		loadMarkers(providers);
 		_map.invalidateSize();
-		_map.flyToBounds(
-			_layerMarkers.getBounds().pad(0.1),
-			$(window).width() > WIDTH_THRESHOLD && salad ? 
-				{paddingBottomRight: [340, 0]} : 
-				null					
-		);		
+		zoomToMarkers();
 
 	}
 
@@ -234,6 +229,21 @@
 	/***************************************************************************
 	******************************** FUNCTIONS *********************************
 	***************************************************************************/
+
+	function zoomToMarkers()
+	{
+		_map.fitBounds(
+			_layerMarkers.getBounds().pad(0.1),
+			$(window).width() > WIDTH_THRESHOLD && $("div#results-container").css("display") !== "none" ? 
+				{
+					paddingBottomRight: [
+						$("div#results-container").outerWidth() + parseInt($("#results-container").css("right")), 
+						0
+					]
+				} : 
+				null					
+		);		
+	}
 
 	function loadMarkers(providers)
 	{
