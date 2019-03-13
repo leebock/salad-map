@@ -5,6 +5,7 @@
 	var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
+	var GLOBAL_CLASS_INTRO = "intro";
 
 	var SPREADSHEET_URL_PROVIDERS = "resources/data/providers.csv";
 	var SPREADSHEET_URL_INGREDIENTS = "resources/data/ingredients.csv";
@@ -22,6 +23,7 @@
 
 	$(document).ready(function() {
 
+		$("html body").addClass(GLOBAL_CLASS_INTRO);
 		new SocialButtonBar();
 		
 		_map = new L.Map(
@@ -127,6 +129,7 @@
 	}
 
 	function select_onChange(event) {
+		$("html body").removeClass(GLOBAL_CLASS_INTRO);
 		_map.closePopup();
 		var providers = _providers;
 		var salad;

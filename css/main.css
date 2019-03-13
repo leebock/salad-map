@@ -102,38 +102,53 @@ div#main {
     right: 20px;
     top: 20px;
     background-color: white;
-    padding: 10px; }
+    padding: 10px;
+    width: 430px; }
     @media (max-width: 768px) {
       div#main div#search-container {
         position: relative;
         right: inherit;
-        top: inherit; } }
+        top: inherit;
+        width: 100%; } }
+    div#main div#search-container p:nth-child(1) {
+      display: none;
+      margin-top: 2px;
+      margin-bottom: 8px;
+      margin-left: 3px;
+      font-size: 24px; }
+      @media (max-width: 768px) {
+        div#main div#search-container p:nth-child(1) {
+          font-size: 16px; } }
+      .intro div#main div#search-container p:nth-child(1) {
+        display: block; }
     div#main div#search-container select {
-      font-size: 24px;
       border: none;
       padding: 7px;
-      width: 430px;
+      width: 100%;
+      font-size: 24px;
       border: solid;
       border-width: 1px; }
       @media (max-width: 768px) {
         div#main div#search-container select {
-          font-size: 16px;
-          width: 100%; } }
+          font-size: 16px; } }
   div#main div#results-container {
     position: absolute;
     z-index: 1000;
     right: 20px;
-    top: 110px;
+    top: 120px;
+    max-height: calc(100% - 120px);
     width: 320px;
     display: none;
     background-color: white;
     border-width: 1px;
-    max-height: calc(100% - 150px);
     flex-direction: column;
     padding: 25px;
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 22px; }
+    .intro div#main div#results-container {
+      top: 160px;
+      max-height: calc(100% - 160px); }
     @media (max-width: 768px) {
       div#main div#results-container {
         width: 100%;
