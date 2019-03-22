@@ -1,49 +1,49 @@
-﻿Name,Provider,Creations
-Winter Squash,Oakes Farm,Roasted Squash and Blue Cheese
-Sunchokes,Harvest Sensation,
-Parsnips,Lake Side Organics,
-Leeks,Lake Side Organics,
-Celery,Lake Side Organics,
-Carrots,Kern Ridge,
-Kale,San Miguel,"Harvest Bowl,Roasted Squash and Blue Cheese"
-Arugula,Jay Leaf,
-Spinach,Jay Leaf,Chicken Pesto Parm
-Mesclun,Jay Leaf,Guacamole Greens
-Grape Tomatoes,Lipman Family Farms,"Chicken Pesto Parm,Guacamole Greens"
-Portbella Mushrooms,Mother Earth,
-White Mushrooms,Mother Earth,
-Sweet potatoes,Glover Farms,Harvest Bowl
-Cilantro,C+B Farms,
-Garlic,Christopher Ranch,
-Cucumbers,Oakes Farm,
-Jalapenos,Oakes Farm,
-Parsley,C+B Farms,
-Sweet corn,Pioneer Growers,
-Basil,Bright Farms,
-Jumbo Raisins,Sunview Vineyard,Roasted Squash and Blue Cheese
-Maple Syrup,Backbone Mountain Farm,
-Goat cheese,FireFly Farms,Harvest Bowl
-Feta cheese,MT View Farms,
-Blue cheese,FireFly Farms,Roasted Squash and Blue Cheese
-Bread,Lyon Bakery,
-Extra Virgin Oil,Poilt Farms,
-Yogurt,Stonyfield,
-White miso,Miso Master,
-Rice vinegar,Marukan,Roasted Squash and Blue Cheese
-Sesame Oil,Kikkoman,
-Tamari,Yamasa,
-Honey,Hungry Hill Farms,
-Mustard,Golds,
-Domestic parmesan crisps,"Raisin D'etre,Belgioioso",
-Chicken,Alten Harim,"Harvest Bowl,Chicken Pesto Parm,Guacamole Greens"
-Steelhead,Pacific Seafood,
-Lime juice,Lambeth Groves,
-Lemon juice,Lambeth Groves,
-Cashew Butter,Once Again,
-Tahini,Soom,
-Wild Rice,Lundberg,"Harvest Bowl,Roasted Squash and Blue Cheese"
-Almonds,Tree House,Harvest Bowl
-Walnuts,Gibson Farms,Roasted Squash and Blue Cheese
-Chickpeas,Timeless Seed,
-Lentils,Timeless Seed,
-Tofu,Fresh Tofu,
+﻿Name,Provider,Creations,Category
+Almonds,Tree House,Harvest Bowl,Other
+Arugula,Jay Leaf,,Fruit/Vegetable
+Basil,Bright Farms,,Fruit/Vegetable
+Blue cheese,FireFly Farms,Roasted Squash and Blue Cheese,Dairy
+Bread,Lyon Bakery,,Other
+Carrots,Kern Ridge,,Fruit/Vegetable
+Cashew Butter,Once Again,,Other
+Celery,Lake Side Organics,,Fruit/Vegetable
+Chicken,Alten Harim,"Harvest Bowl,Chicken Pesto Parm,Guacamole Greens",Other
+Chickpeas,Timeless Seed,,Other
+Cilantro,C+B Farms,Guacamole Greens,Fruit/Vegetable
+Cucumbers,Oakes Farm,,Fruit/Vegetable
+Domestic parmesan crisps,"Raisin D'etre,Belgioioso",,Dairy
+Extra Virgin Oil,Poilt Farms,"Roasted Squash and Blue Cheese,Guacamole Greens,Harvest Bowl",Other
+Feta cheese,MT View Farms,,Dairy
+Garlic,Christopher Ranch,,Fruit/Vegetable
+Goat cheese,FireFly Farms,Harvest Bowl,Dairy
+Grape Tomatoes,Lipman Family Farms,"Chicken Pesto Parm,Guacamole Greens",Fruit/Vegetable
+Honey,Hungry Hill Farms,,Other
+Jalapenos,Oakes Farm,Guacamole Greens,Fruit/Vegetable
+Jumbo Raisins,Sunview Vineyard,Roasted Squash and Blue Cheese,Fruit/Vegetable
+Kale,San Miguel,"Harvest Bowl,Roasted Squash and Blue Cheese",Fruit/Vegetable
+Leeks,Lake Side Organics,,Fruit/Vegetable
+Lemon juice,Lambeth Groves,,Fruit/Vegetable
+Lentils,Timeless Seed,,Other
+Lime juice,Lambeth Groves,,Fruit/Vegetable
+Maple Syrup,Backbone Mountain Farm,,Other
+Mesclun,Jay Leaf,Guacamole Greens,Fruit/Vegetable
+Mustard,Golds,,Fruit/Vegetable
+Parsley,C+B Farms,,Fruit/Vegetable
+Parsnips,Lake Side Organics,,Fruit/Vegetable
+Portbella Mushrooms,Mother Earth,,Fruit/Vegetable
+Rice vinegar,Marukan,"Roasted Squash and Blue Cheese,Guacamole Greens,Chicken Pesto Parm,Harvest Bowl",Other
+Sesame Oil,Kikkoman,,Other
+Spinach,Jay Leaf,Chicken Pesto Parm,Fruit/Vegetable
+Steelhead,Pacific Seafood,,Other
+Sunchokes,Harvest Sensation,,Fruit/Vegetable
+Sweet corn,Pioneer Growers,,Fruit/Vegetable
+Sweet potatoes,Glover Farms,Harvest Bowl,Fruit/Vegetable
+Tahini,Soom,,Other
+Tamari,Yamasa,,Other
+Tofu,Fresh Tofu,,Other
+Walnuts,Gibson Farms,Roasted Squash and Blue Cheese,Other
+White miso,Miso Master,,Other
+White Mushrooms,Mother Earth,,Fruit/Vegetable
+Wild Rice,Lundberg,"Harvest Bowl,Roasted Squash and Blue Cheese",Other
+Winter Squash,Oakes Farm,Roasted Squash and Blue Cheese,Fruit/Vegetable
+Yogurt,Stonyfield,,Dairy

@@ -1,39 +1,39 @@
-﻿Name,City,State,Zip,Coordinates,Lat,Long,Notes,Attachments,Ingredients
-Alten Harim, Seaford,DE,19973,"38.618266, -75.644084",38.618266,-75.644084,,,Chicken
-Backbone Mountain Farm,Oakland,MD,21550,"39.376107, -79.425335",39.376107,-79.425335,,,Maple Syrup
-Belgioioso, Green Bay,WI,54311,"44.474118, -87.874615",44.474118,-87.874615,,,Domestic parmesan crisps
-Bright Farms,Elkwood,VA,22718,"38.470172, -77.877164",38.470172,-77.877164,,,Basil
-C+B Farms,Clewiston,FL,33440,"26.554405, -81.080010",26.554405,-81.080010,,,"Cilantro,Parsley"
-Christopher Ranch,Gilroy,CA,95020,"37.011982, -121.561464",37.011982,-121.561464,,,Garlic
-FireFly Farms,Accident,MD,21520,"39.631646, -79.299452",39.631646,-79.299452,,,"Goat cheese,Blue cheese"
-Fresh Tofu,Allentown,PA,18103,"40.571478, -75.486472",40.571478,-75.486472,,,Tofu
-Gibson Farms,Hollister,CA,95023,"36.902971, -121.322836",36.902971,-121.322836,,,Walnuts
-Glover Farms,Lucama,NC,27851,"35.642178, -78.020898",35.642178,-78.020898,,,Sweet potatoes
-Golds,Hempstead,NY,11550,"40.703179, -73.621250",40.703179,-73.621250,,,Mustard
-Harvest Sensation,,OR,97759,"44.327676, -121.525000",44.327676,-121.525000,,,Sunchokes
-Hungry Hill Farms,Shipman,VA,22971,"37.751692, -78.804991",37.751692,-78.804991,,,Honey
-Jay Leaf,Hollister,CA,95023,"36.912201, -121.308774",36.912201,-121.308774,,,"Arugula,Spinach,Mesclun"
-Kern Ridge,Arvin,CA,93203,"35.111810, -118.832174",35.111810,-118.832174,,,Carrots
-Kikkoman,Walworth,WI,53184,"42.533145, -88.624275",42.533145,-88.624275,,,Sesame Oil
-Lake Side Organics,Watsonville,CA,95076,"36.997404, -121.791045",36.997404,-121.791045,,,"Parsnips,Leeks,Celery"
-Lambeth Groves,Vero Beach,FL,32968,"27.590673, -80.471635",27.590673,-80.471635,,,"Lime juice,Lemon juice"
-Lipman Family Farms,Immokalee,FL,34142,"26.388550, -81.371345",26.388550,-81.371345,,,Grape Tomatoes
-Lundberg,Richvale,CA,95974,"39.498894, -121.748034",39.498894,-121.748034,,,Wild Rice
-Lyon Bakery,Hyattsville,MD,20785,"38.914505, -76.878054",38.914505,-76.878054,,,Bread
-Marukan,Paramount,CA,‎90723,"33.897765, -118.165251",33.897765,-118.165251,,,Rice vinegar
-Miso Master,Asheville,NC,28806,"35.569145, -82.616034",35.569145,-82.616034,,,White miso
-Mother Earth,Landenberg,PA,19350,"39.767543, -75.795445",39.767543,-75.795445,,,"Portbella Mushrooms,White Mushrooms"
-MT View Farms, Fairfield,VA,24435,"37.893025, -79.313044",37.893025,-79.313044,,,Feta cheese
-Oakes Farm,Immokalee,FL,34142,"26.302399, -81.384287",26.302399,-81.384287,,,"Winter Squash,Cucumbers,Jalapenos"
-Once Again,Nunda,NY,14517,"42.587029, -77.859457",42.587029,-77.859457,,,Cashew Butter
-Pacific Seafood,Seattle,WA,98119,"47.638054, -122.367891",47.638054,-122.367891,,,Steelhead
-Pioneer Growers,Belle Glade,FL,33430,"26.654039, -80.654920",26.654039,-80.654920,,,Sweet corn
-Poilt Farms,,CA,,"37.184825, -120.275694",37.184825,-120.275694,,,Extra Virgin Oil
-Raisin D'etre,San Francisco,CA,94080,"37.653997, -122.418540",37.653997,-122.418540,,,Domestic parmesan crisps
-San Miguel,Oxnard,CA,93033,"34.159935, -119.127863",34.159935,-119.127863,,,Kale
-Soom,Philadelphia,PA,19134,"39.986509, -75.102531",39.986509,-75.102531,,,Tahini
-Stonyfield,Londonderry,NH,03053,"42.868207, -71.376185",42.868207,-71.376185,,,Yogurt
-Sunview Vineyard,Delano,CA,93215,"35.795281, -119.162699",35.795281,-119.162699,,,Jumbo Raisins
-Timeless Seed,Ulm,MT,59485,"47.431674, -111.507557",47.431674,-111.507557,,,"Chickpeas,Lentils"
-Tree House,Earlimart,CA,93219,"35.879374, -119.371684",35.879374,-119.371684,,,Almonds
-Yamasa,Henrico,VA,23231,"37.440532, -77.309800",37.440532,-77.309800,,,Tamari
+﻿Name,City,State,Zip,Coordinates,Lat,Long,Ingredients,Category
+Alten Harim, Seaford,DE,19973,"38.618266, -75.644084",38.618266,-75.644084,Chicken,Other
+Backbone Mountain Farm,Oakland,MD,21550,"39.376107, -79.425335",39.376107,-79.425335,Maple Syrup,Other
+Belgioioso, Green Bay,WI,54311,"44.474118, -87.874615",44.474118,-87.874615,Domestic parmesan crisps,Dairy
+Bright Farms,Elkwood,VA,22718,"38.470172, -77.877164",38.470172,-77.877164,Basil,Fruit/Vegetable
+C+B Farms,Clewiston,FL,33440,"26.554405, -81.080010",26.554405,-81.080010,"Cilantro,Parsley",Fruit/Vegetable
+Christopher Ranch,Gilroy,CA,95020,"37.011982, -121.561464",37.011982,-121.561464,Garlic,Fruit/Vegetable
+FireFly Farms,Accident,MD,21520,"39.631646, -79.299452",39.631646,-79.299452,"Goat cheese,Blue cheese",Dairy
+Fresh Tofu,Allentown,PA,18103,"40.571478, -75.486472",40.571478,-75.486472,Tofu,Other
+Gibson Farms,Hollister,CA,95023,"36.902971, -121.322836",36.902971,-121.322836,Walnuts,Other
+Glover Farms,Lucama,NC,27851,"35.642178, -78.020898",35.642178,-78.020898,Sweet potatoes,Fruit/Vegetable
+Golds,Hempstead,NY,11550,"40.703179, -73.621250",40.703179,-73.621250,Mustard,Fruit/Vegetable
+Harvest Sensation,,OR,97759,"44.327676, -121.525000",44.327676,-121.525000,Sunchokes,Fruit/Vegetable
+Hungry Hill Farms,Shipman,VA,22971,"37.751692, -78.804991",37.751692,-78.804991,Honey,Other
+Jay Leaf,Hollister,CA,95023,"36.912201, -121.308774",36.912201,-121.308774,"Arugula,Spinach,Mesclun",Fruit/Vegetable
+Kern Ridge,Arvin,CA,93203,"35.111810, -118.832174",35.111810,-118.832174,Carrots,Fruit/Vegetable
+Kikkoman,Walworth,WI,53184,"42.533145, -88.624275",42.533145,-88.624275,Sesame Oil,Other
+Lake Side Organics,Watsonville,CA,95076,"36.997404, -121.791045",36.997404,-121.791045,"Parsnips,Leeks,Celery",Fruit/Vegetable
+Lambeth Groves,Vero Beach,FL,32968,"27.590673, -80.471635",27.590673,-80.471635,"Lime juice,Lemon juice",Fruit/Vegetable
+Lipman Family Farms,Immokalee,FL,34142,"26.388550, -81.371345",26.388550,-81.371345,Grape Tomatoes,Fruit/Vegetable
+Lundberg,Richvale,CA,95974,"39.498894, -121.748034",39.498894,-121.748034,Wild Rice,Other
+Lyon Bakery,Hyattsville,MD,20785,"38.914505, -76.878054",38.914505,-76.878054,Bread,Other
+Marukan,Paramount,CA,‎90723,"33.897765, -118.165251",33.897765,-118.165251,Rice vinegar,Other
+Miso Master,Asheville,NC,28806,"35.569145, -82.616034",35.569145,-82.616034,White miso,Other
+Mother Earth,Landenberg,PA,19350,"39.767543, -75.795445",39.767543,-75.795445,"Portbella Mushrooms,White Mushrooms",Fruit/Vegetable
+MT View Farms, Fairfield,VA,24435,"37.893025, -79.313044",37.893025,-79.313044,Feta cheese,Dairy
+Oakes Farm,Immokalee,FL,34142,"26.302399, -81.384287",26.302399,-81.384287,"Winter Squash,Cucumbers,Jalapenos",Fruit/Vegetable
+Once Again,Nunda,NY,14517,"42.587029, -77.859457",42.587029,-77.859457,Cashew Butter,Other
+Pacific Seafood,Seattle,WA,98119,"47.638054, -122.367891",47.638054,-122.367891,Steelhead,Other
+Pioneer Growers,Belle Glade,FL,33430,"26.654039, -80.654920",26.654039,-80.654920,Sweet corn,Fruit/Vegetable
+Poilt Farms,Maxwell,CA,95955,"39.305611, -122.191848",39.305611,-122.191848,Extra Virgin Oil,Other
+Raisin D'etre,San Francisco,CA,94080,"37.653997, -122.418540",37.653997,-122.418540,Domestic parmesan crisps,Dairy
+San Miguel,Oxnard,CA,93033,"34.159935, -119.127863",34.159935,-119.127863,Kale,Fruit/Vegetable
+Soom,Philadelphia,PA,19134,"39.986509, -75.102531",39.986509,-75.102531,Tahini,Other
+Stonyfield,Londonderry,NH,03053,"42.868207, -71.376185",42.868207,-71.376185,Yogurt,Dairy
+Sunview Vineyard,Delano,CA,93215,"35.795281, -119.162699",35.795281,-119.162699,Jumbo Raisins,Fruit/Vegetable
+Timeless Seed,Ulm,MT,59485,"47.431674, -111.507557",47.431674,-111.507557,"Chickpeas,Lentils",Other
+Tree House,Earlimart,CA,93219,"35.879374, -119.371684",35.879374,-119.371684,Almonds,Other
+Yamasa,Henrico,VA,23231,"37.440532, -77.309800",37.440532,-77.309800,Tamari,Other
