@@ -14,6 +14,12 @@
 	var HILLSHADE_SERVICE_URL = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/";
 	var VECTOR_BASEMAP_ID = "fc3fec26b9ef44ae95674eed0a4a92ff";
 
+	var ICONS = {
+		"Fruit/Vegetable": L.AwesomeMarkers.icon({markerColor: 'green'}),
+		"Dairy": L.AwesomeMarkers.icon({markerColor: 'orange'}),
+		"Other": L.AwesomeMarkers.icon({markerColor: 'darkred'})
+	};
+
 	var _map;
 	var _layerMarkers;
 
@@ -259,6 +265,7 @@
 				L.marker(
 					record.getLatLng(), 
 					{
+						icon: ICONS[record.getCategory()],
 						riseOnHover: true
 					}
 				)

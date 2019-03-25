@@ -28,3 +28,8 @@ Provider.prototype.getProducts = function()
 {
 	return this._json.Ingredients.split(",");
 };
+
+Provider.prototype.getCategory = function()
+{
+	return this._json.Category;
+};
