@@ -18,3 +18,8 @@ Ingredient.prototype.getProviders = function()
 {
 	return this._json.Provider.split(",");	
 };
+
+Ingredient.prototype.getCategory = function()
+{
+	return this._json.Category;
+};

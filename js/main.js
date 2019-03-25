@@ -289,7 +289,12 @@
 		$.each(
 			salad.getIngredients(), 
 			function(index, ingredient) {
+				var category = $.grep(
+					_ingredients, 
+					function(value){return value.getName() === ingredient;}
+				).shift().getCategory().toLowerCase().replace("/","-"); 
 				$("<li>")
+					.addClass("category-"+category)
 					.append(
 						$("<a>")
 							.append(ingredient)
