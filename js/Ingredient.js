@@ -16,7 +16,7 @@ Ingredient.prototype.getName = function()
 
 Ingredient.prototype.getProviders = function()
 {
-	return this._json.Provider.split(",");	
+	return $.grep(this._json.Provider.split(","),function(value){return value !== "";});	
 };
 
 Ingredient.prototype.getCategory = function()
