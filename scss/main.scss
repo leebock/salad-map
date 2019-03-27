@@ -87,7 +87,7 @@ div#main {
     right: 20px;
     top: 20px;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     width: 430px;
 
     @media (max-width: $WIDTH-THRESHOLD) {
@@ -95,16 +95,18 @@ div#main {
       right: inherit;
       top: inherit;
       width: 100%;
+      padding: 13px;
     }
 
     p:nth-child(1) {
       display: none;
       margin-top: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 18px;
       margin-left: 3px;
       font-size: 24px;
       @media (max-width: $WIDTH-THRESHOLD) {
         font-size: 16px;
+        margin-bottom: 10px;
       }
       #{$GLOBAL-CLASS-INTRO} & {
         display: block;
@@ -147,19 +149,21 @@ div#main {
     flex-direction: column;
 
     padding: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 22px;
 
     @media (max-width: $WIDTH-THRESHOLD) {
       width: 100%;
       max-height: 45%;
+      font-size: 16px;
+      padding: 18px;
       position: relative;
       right: inherit;
       top: inherit;
       order: 1;
     }
 
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 22px;
 
     #preface {
       margin-bottom: 10px;

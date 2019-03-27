@@ -102,23 +102,25 @@ div#main {
     right: 20px;
     top: 20px;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     width: 430px; }
     @media (max-width: 768px) {
       div#main div#search-container {
         position: relative;
         right: inherit;
         top: inherit;
-        width: 100%; } }
+        width: 100%;
+        padding: 13px; } }
     div#main div#search-container p:nth-child(1) {
       display: none;
       margin-top: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 18px;
       margin-left: 3px;
       font-size: 24px; }
       @media (max-width: 768px) {
         div#main div#search-container p:nth-child(1) {
-          font-size: 16px; } }
+          font-size: 16px;
+          margin-bottom: 10px; } }
       .intro div#main div#search-container p:nth-child(1) {
         display: block; }
     div#main div#search-container select {
@@ -153,6 +155,8 @@ div#main {
       div#main div#results-container {
         width: 100%;
         max-height: 45%;
+        font-size: 16px;
+        padding: 18px;
         position: relative;
         right: inherit;
         top: inherit;
