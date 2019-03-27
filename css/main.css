@@ -175,7 +175,7 @@ div#main {
       -webkit-overflow-scrolling: touch; }
       div#main div#results-container ul#results li {
         padding: 10px;
-        background-color: #efefef;
+        background-color: #e2e2e2;
         border-top-style: solid;
         border-top-width: 1px; }
         div#main div#results-container ul#results li:first-child {
@@ -183,8 +183,10 @@ div#main {
         div#main div#results-container ul#results li:last-child {
           border-bottom-style: solid;
           border-bottom-width: 1px; }
-        div#main div#results-container ul#results li:hover {
-          background-color: aliceblue; }
+        div#main div#results-container ul#results li.clickable {
+          background-color: #efefef; }
+          div#main div#results-container ul#results li.clickable:hover {
+            background-color: aliceblue; }
         div#main div#results-container ul#results li.selected {
           background-color: rgba(0, 0, 255, 0.3); }
           div#main div#results-container ul#results li.selected.category-fruit-vegetable {

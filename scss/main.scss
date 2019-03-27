@@ -185,7 +185,7 @@ div#main {
 
       li {
         padding: 10px;
-        background-color: #efefef;
+        background-color: #e2e2e2;
         border-top-style: solid;
         border-top-width: 1px;
         &:first-child {
@@ -195,8 +195,11 @@ div#main {
           border-bottom-style: solid;
           border-bottom-width: 1px;
         }
-        &:hover {
-          background-color: aliceblue;
+        &.clickable {
+          background-color: #efefef;
+          &:hover {
+            background-color: aliceblue;
+          }
         }
         &.selected {
           background-color: rgba(0,0,255,0.3);

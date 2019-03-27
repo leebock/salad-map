@@ -289,16 +289,21 @@
 		$.each(
 			salad.getIngredients(), 
 			function(index, ingredient) {
-				var category = $.grep(
+				ingredient = $.grep(
 					_ingredients, 
 					function(value){return value.getName() === ingredient;}
-				).shift().getCategory().toLowerCase().replace("/","-"); 
+				).shift();
 				$("<li>")
-					.addClass("category-"+category)
+					.addClass(
+						"category-"+ingredient.getCategory().toLowerCase().replace("/","-")+
+						(ingredient.getProviders().length ? " clickable" : "")
+					)
 					.append(
+						ingredient.getProviders().length ?
 						$("<a>")
-							.append(ingredient)
-							.attr("href", "#")
+							.append(ingredient.getName())
+							.attr("href", "#") :
+						$("<span>").append(ingredient.getName()+" *")
 					)
 					.appendTo($("ul#results"));				
 			}
