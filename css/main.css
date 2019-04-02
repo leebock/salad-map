@@ -103,14 +103,17 @@ div#main {
     top: 20px;
     background-color: white;
     padding: 20px;
-    width: 430px; }
+    width: 430px;
+    border: solid;
+    border-width: 1px; }
     @media (max-width: 768px) {
       div#main div#search-container {
         position: relative;
         right: inherit;
         top: inherit;
         width: 100%;
-        padding: 13px; } }
+        padding: 13px;
+        border: none; } }
     div#main div#search-container p:nth-child(1) {
       display: none;
       margin-top: 2px;

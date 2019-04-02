@@ -89,6 +89,8 @@ div#main {
     background-color: white;
     padding: 20px;
     width: 430px;
+    border: solid;
+    border-width: 1px;
 
     @media (max-width: $WIDTH-THRESHOLD) {
       position: relative;
@@ -96,6 +98,7 @@ div#main {
       top: inherit;
       width: 100%;
       padding: 13px;
+      border: none;
     }
 
     p:nth-child(1) {
