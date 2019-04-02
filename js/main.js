@@ -21,6 +21,7 @@
 	};
 
 	var _map;
+	var _layerLines;
 	var _layerMarkers;
 
 	var _providers;
@@ -41,6 +42,8 @@
 			.addControl(L.control.attribution({position: 'bottomleft'}))
 			.on("click", onMapClick)
 			.on("moveend", onExtentChange);
+
+		_layerLines = L.featureGroup().addTo(_map);
 
 		_layerMarkers = L.featureGroup()
 			.addTo(_map)
@@ -103,6 +106,7 @@
 					);
 
 					loadMarkers(_providers);
+					loadLines(_providers);
 					zoomToMarkers();
 					finish();
 				}
@@ -159,6 +163,7 @@
 			$("div#results-container").hide();			
 		}
 
+		loadLines(providers);
 		loadMarkers(providers);
 		_map.invalidateSize();
 		zoomToMarkers();
@@ -276,6 +281,17 @@
 			}
 		);
 
+	}
+
+	function loadLines(providers)
+	{
+		_layerLines.clearLayers();
+		$.each(
+			providers, 
+			function(index, record) {
+				L.polyline([record.getLatLng(), [38.896319, -77.071094]], {color: "gray", weight: 1}).addTo(_layerLines);
+			}
+		);
 	}
 
 	function loadResults(salad)
