@@ -19,7 +19,7 @@ L.SaladMap = L.Map.extend({
       .on("click", onMarkerClick);
 
     this.loadData(providers, ingredients);
-    this._zoomToMarkers();
+    this.zoomToMarkers();
 
     var self = this;
 
@@ -67,19 +67,19 @@ L.SaladMap = L.Map.extend({
     this._ingredients = ingredients;
     this._loadMarkers(this._providers);
     this._loadLines(this._providers);
+    this.zoomToMarkers();
   },
 
-  /*************************************************/
-  /************* "PRIVATE" FUNCTIONS ***************/
-  /*************************************************/
-
-
-  _zoomToMarkers: function()
+  zoomToMarkers: function()
   {
     this.fitBounds(
       this._layerMarkers.getBounds().pad(0.1)
     );    
   },
+
+  /*************************************************/
+  /************* "PRIVATE" FUNCTIONS ***************/
+  /*************************************************/
 
   _loadMarkers: function(providers)
   {
