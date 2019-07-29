@@ -91,6 +91,7 @@ div#main {
     width: 430px;
     border: solid;
     border-width: 1px;
+    box-sizing: border-box;
 
     @media (max-width: $WIDTH-THRESHOLD) {
       position: relative;
@@ -134,6 +135,7 @@ div#main {
 
   div#results-container {
 
+    box-sizing: border-box;
     position: absolute;
     z-index: 1000;
     right: 20px;
