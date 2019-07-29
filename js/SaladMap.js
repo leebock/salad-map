@@ -35,21 +35,6 @@ L.SaladMap = L.Map.extend({
 
       var ingredients = self._ingredients;
 
-      /*
-      if ($("#creations").val().toLowerCase() !== "all providers") {
-        var salad = $.grep(
-          _creations, 
-          function(value){return value.getName() === $("#creations").val();}
-        ).shift();
-        ingredients = $.grep(
-          ingredients, 
-          function(ingredient) {
-            return $.inArray(ingredient.getName(), salad.getIngredients()) > -1;
-          }
-        );
-      }
-      */
-
       L.popup({closeButton: false, offset: L.point(0, -25)})
         .setLatLng(provider.getLatLng())
         .setContent(
@@ -66,29 +51,6 @@ L.SaladMap = L.Map.extend({
           )
         )
         .openOn(self);    
-
-      /*
-      $("ul#results li").removeClass("selected");
-      $(
-        $.grep(
-          $("ul#results li"),
-          function(li) {
-            return $.inArray(
-              $(li).find("a").text(),       
-                $.map(
-                  $.grep(
-                    ingredients, 
-                    function(ingredient) {
-                      return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-                    }
-                  ),
-                  function(value){return value.getName();}
-                )
-            ) > -1;
-          }
-        ).shift()
-      ).addClass("selected");
-      */
 
     }
 
@@ -115,16 +77,7 @@ L.SaladMap = L.Map.extend({
   _zoomToMarkers: function()
   {
     this.fitBounds(
-      this._layerMarkers.getBounds().pad(0.1)/*,
-      $(window).width() > WIDTH_THRESHOLD && $("div#results-container").css("display") !== "none" ? 
-        {
-          paddingBottomRight: [
-            $("div#results-container").outerWidth() + parseInt($("#results-container").css("right")), 
-            0
-          ]
-        } : 
-        null          
-        */
+      this._layerMarkers.getBounds().pad(0.1)
     );    
   },
 
@@ -164,68 +117,5 @@ L.SaladMap = L.Map.extend({
       }
     );
   }
-
-  /*
-  function loadResults(salad)
-  {
-    $("ul#results").empty();
-    $("div#results-container div#preface").html(
-      "The <b>"+salad.getName()+"</b> salad "+
-      "consists of the following ingredients:"
-    );
-
-    $.each(
-      salad.getIngredients(), 
-      function(index, ingredient) {
-        ingredient = $.grep(
-          _ingredients, 
-          function(value){return value.getName() === ingredient;}
-        ).shift();
-        $("<li>")
-          .addClass(
-            "category-"+ingredient.getCategory().toLowerCase().replace("/","-")+
-            (ingredient.getProviders().length ? " clickable" : "")
-          )
-          .append(
-            ingredient.getProviders().length ?
-            $("<a>")
-              .append(ingredient.getName())
-              .attr("href", "#") :
-            $("<span>").append(ingredient.getName()+" *")
-          )
-          .appendTo($("ul#results"));        
-      }
-    );
-
-    $("ul#results li a").click(
-      function(event) {
-        $("ul#results li").removeClass("selected");
-        $(this).parent().addClass("selected");
-        var ingredient =  $.grep(
-          _ingredients, 
-          function(value) {
-            return value.getName() === $(event.target).text();
-          }
-        ).shift();
-        var provider = $.grep(
-          _providers,
-          function(value) {
-            return $.inArray(value.getName(), ingredient.getProviders()) > -1;
-          }
-        ).shift(); // todo: handle multiples
-
-        L.popup({closeButton: false, offset: L.point(0, -25)})
-          .setLatLng(provider.getLatLng())
-          .setContent(
-            "<b>"+provider.getName()+"</b>"+
-            "<br />"+ingredient.getName()
-          )
-          .openOn(_map);    
-
-      }
-    );
-
-  }
-  */
 
 });
