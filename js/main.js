@@ -11,9 +11,6 @@
 	var SPREADSHEET_URL_INGREDIENTS = "resources/data/ingredients.csv";
 	var SPREADSHEET_URL_CREATIONS = "resources/data/creations.csv";
 
-	var HILLSHADE_SERVICE_URL = "https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/";
-	var VECTOR_BASEMAP_ID = "fc3fec26b9ef44ae95674eed0a4a92ff";
-
 	var _map;
 
 	var _providers;
@@ -100,8 +97,7 @@
 				_providers,
 				_ingredients
 			)
-				.addLayer(L.esri.tiledMapLayer({url: HILLSHADE_SERVICE_URL, opacity: 0.2}))			
-				.addLayer(L.esri.Vector.layer(VECTOR_BASEMAP_ID))
+				.addLayer(L.esri.basemapLayer("Topographic"))
 				.addControl(L.control.attribution({position: 'bottomleft'}))
 				.on("click", onMapClick)
 				.on("moveend", onExtentChange);
