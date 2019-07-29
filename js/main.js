@@ -32,15 +32,6 @@
 						data.data, 
 						function(value, index){return new Creation(value, index);}
 					);
-					var optgroup = $("<optgroup>")
-						.attr("label", "Salad Creations")
-						.appendTo($("select#creations"));
-					$.each(
-						_creations, 
-						function(index, value) {
-							$(optgroup).append($("<option>").html(value.getName()));
-						}
-					);
 					finish();
 				}
 			}
@@ -67,12 +58,10 @@
 				header: true,
 				download: true,
 				complete: function(data) {
-
 					_providers = $.map(
 						$.grep(data.data, function(value){return value.Lat && value.Long;}), 
 						function(value, index){return new Provider(value, index);}
 					);
-
 					finish();
 				}
 			}
@@ -113,14 +102,26 @@
 					]
 				}).addTo(_map);			
 			}
-
+			
+			// load combo box
+			
+			var optgroup = $("<optgroup>")
+				.attr("label", "Salad Creations")
+				.appendTo($("select#creations"));
+			$.each(
+				_creations, 
+				function(index, value) {
+					$(optgroup).append($("<option>").html(value.getName()));
+				}
+			);			
+			$("select#creations").change(select_onChange);
+						
 			// one time check to see if touch is being used
 
 			$(document).one(
 				"touchstart", 
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
 			);
-			$("select#creations").change(select_onChange);
 
 		}
 
