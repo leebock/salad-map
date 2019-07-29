@@ -113,7 +113,10 @@ L.SaladMap = L.Map.extend({
     $.each(
       providers, 
       function(index, record) {
-        L.polyline([record.getLatLng(), [38.896319, -77.071094]], {color: "gray", weight: 1}).addTo(self._layerLines);
+        L.polyline(
+            [record.getLatLng(), [38.896319, -77.071094]], 
+            {color: "gray", weight: 1}
+        ).addTo(self._layerLines);
       }
     );
   }
