@@ -35,8 +35,15 @@
 						data.data, 
 						function(value, index){return new Creation(value, index);}
 					);
-					var optgroup = $("<optgroup>").attr("label", "Salad Creations").appendTo($("select#creations"));
-					$.each(_creations, function(index, value){$(optgroup).append($("<option>").html(value.getName()));});
+					var optgroup = $("<optgroup>")
+						.attr("label", "Salad Creations")
+						.appendTo($("select#creations"));
+					$.each(
+						_creations, 
+						function(index, value) {
+							$(optgroup).append($("<option>").html(value.getName()));
+						}
+					);
 					finish();
 				}
 			}
@@ -83,7 +90,13 @@
 
 			_map = new L.SaladMap(
 				"map", 
-				{zoomControl: !L.Browser.mobile, attributionControl: false, maxZoom: 9, minZoom: 2, worldCopyJump: true},
+				{
+					zoomControl: !L.Browser.mobile, 
+					attributionControl: false, 
+					maxZoom: 9, 
+					minZoom: 2, 
+					worldCopyJump: true
+				},
 				_providers,
 				_ingredients
 			)
@@ -107,7 +120,10 @@
 
 			// one time check to see if touch is being used
 
-			$(document).one("touchstart", function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);});
+			$(document).one(
+				"touchstart", 
+				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
+			);
 			$("select#creations").change(select_onChange);
 
 		}
@@ -139,7 +155,9 @@
 				function(provider){
 					return $.grep(
 						provider.getProducts(), 
-						function(product){return $.inArray(product, salad.getIngredients())  > -1;}
+						function(product) {
+							return $.inArray(product, salad.getIngredients())  > -1;
+						}
 					).length;
 				}
 			);
@@ -157,10 +175,7 @@
 			$("div#results-container").hide();			
 		}
 
-		//loadLines(providers);
-		//loadMarkers(providers);
 		_map.invalidateSize();
-		//zoomToMarkers();
 
 	}
 
@@ -279,9 +294,6 @@
 
 			}
 		);
-
-
 	}
-
 
 })();
