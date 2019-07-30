@@ -33,6 +33,14 @@
 						data.data, 
 						function(value, index){return new Creation(value, index);}
 					);
+					_creations = $.grep(
+						_creations, 
+						function(value){
+							return value.getName() !== "Guacamole Greens" && 
+									value.getName() !== "Roasted Squash and Blue Cheese" &&
+									value.getName() !== "";
+						}
+					);
 					finish();
 				}
 			}
@@ -113,6 +121,7 @@
 			$.each(
 				_creations, 
 				function(index, value) {
+					console.log(index, value);
 					$(optgroup).append($("<option>").html(value.getName()));
 				}
 			);			
