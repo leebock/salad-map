@@ -66,6 +66,7 @@ L.SaladMap = L.Map.extend({
 
   loadData: function(providers, ingredients)
   {
+    this.closePopup();
     this._providers = providers;
     this._ingredients = ingredients;
     this._loadMarkers(this._providers);

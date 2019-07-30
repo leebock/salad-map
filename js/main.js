@@ -164,7 +164,6 @@
 	function select_onChange(event) {
 		
 		$("html body").removeClass(GLOBAL_CLASS_INTRO);
-		_map.closePopup();
 		var providers = _providers;
 		var ingredients = _ingredients;
 		if (event.target.value.toLowerCase() !== "all providers") {
