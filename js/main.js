@@ -147,27 +147,17 @@
 	
 	function map_onProviderSelect(provider)
 	{
-		var ingredients = _ingredients;
-		_table.clearSelected();
 		_table.selectIngredients(
-			$.grep(
-				ingredients, 
-				function(ingredient) {
-					return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-				}
-			)			
+			SelectionMachine.selectIngredientsForProvider(_ingredients, provider)
 		);
 	}
 	
 	function table_onIngredientSelect(event, ingredient) 
 	{
-		var provider = $.grep(
-			_providers,
-			function(value) {
-				return $.inArray(value.getName(), ingredient.getProviders()) > -1;
-			}
-		).shift(); // todo: handle multiples
-		_map.selectProvider(provider);		
+		/*todo: handle multiples*/
+		_map.selectProvider(
+			SelectionMachine.selectProvidersForIngredient(_providers, ingredient).shift()
+		);		
 	}
 
 	function select_onChange(event) {

@@ -49,6 +49,7 @@ Table.prototype.clearSelected = function()
 
 Table.prototype.selectIngredients = function(ingredients)
 {
+    this.clearSelected();
     var ul = this._ul;
     $(
         $.grep(

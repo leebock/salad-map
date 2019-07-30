@@ -94,6 +94,7 @@
         "Provider": false,
         "Ingredient": false,
         "Creation": false,
+        "SelectionMachine": false,
         "Table": false
  	}        // additional predefined global variables
 }
