@@ -200,10 +200,14 @@
 	function getPaddingBottomRight()
 	{
 		var paddingBottomRight = null;
-		if ($(window).width() > WIDTH_THRESHOLD && $("div#results-container").css("display") !== "none") {
+		if (
+			$(window).width() > WIDTH_THRESHOLD && 
+			$("div#results-container").css("display") !== "none"
+		) {
 		 	paddingBottomRight = 
 				[
-					$("div#results-container").outerWidth() + parseInt($("#results-container").css("right")), 
+					$("div#results-container").outerWidth() + 
+					parseInt($("#results-container").css("right")), 
 					0
 				]; 
 		}
