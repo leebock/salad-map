@@ -1,7 +1,7 @@
 L.SaladMap = L.Map.extend({
 
 
-  initialize: function(div, options, providers, ingredients)
+  initialize: function(div, options, providers, ingredients, paddingBottomRight)
   {
 
     L.Map.prototype.initialize.call(this, div, options);
@@ -17,6 +17,8 @@ L.SaladMap = L.Map.extend({
     this._layerMarkers = L.featureGroup()
       .addTo(this)
       .on("click", onMarkerClick);
+      
+    this._paddingBottomRight = paddingBottomRight;
 
     this.loadData(providers, ingredients);
     this.zoomToMarkers();
@@ -70,10 +72,16 @@ L.SaladMap = L.Map.extend({
     this.zoomToMarkers();
   },
 
+  setPaddingBottomRight: function(paddingBottomRight)
+  {
+      this._paddingBottomRight = paddingBottomRight;
+  },
+
   zoomToMarkers: function()
   {
     this.fitBounds(
-      this._layerMarkers.getBounds().pad(0.1)
+      this._layerMarkers.getBounds().pad(0.1),
+      this._paddingBottomRight ? {paddingBottomRight: this._paddingBottomRight} : null
     );    
   },
 

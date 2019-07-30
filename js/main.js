@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	//var WIDTH_THRESHOLD = 768;
+	var WIDTH_THRESHOLD = 768;
 
 	var GLOBAL_CLASS_USETOUCH = "touch";
 	var GLOBAL_CLASS_INTRO = "intro";
@@ -84,7 +84,8 @@
 					worldCopyJump: true
 				},
 				_providers,
-				_ingredients
+				_ingredients,
+				getPaddingBottomRight()
 			)
 				.addLayer(L.esri.basemapLayer("Topographic"))
 				.addControl(L.control.attribution({position: 'bottomleft'}))
@@ -121,6 +122,10 @@
 			$(document).one(
 				"touchstart", 
 				function(){$("html body").addClass(GLOBAL_CLASS_USETOUCH);}
+			);
+			
+			$(window).resize(
+				function(){_map.setPaddingBottomRight(getPaddingBottomRight());}
 			);
 
 		}
@@ -165,7 +170,6 @@
 				}
 			);
 
-			_map.loadData(providers, ingredients);
 			$("div#results-container").css("display", "flex");			
 			loadResults(salad);
 		} else {
@@ -173,6 +177,9 @@
 		}
 
 		_map.invalidateSize();
+		_map.setPaddingBottomRight(getPaddingBottomRight());
+		_map.loadData(providers, ingredients);
+
 
 	}
 
@@ -211,27 +218,23 @@
 	function onExtentChange()
 	{
 	}
-
+	
 	/***************************************************************************
 	******************************** FUNCTIONS *********************************
 	***************************************************************************/
-
-	/*
-	function zoomToMarkers()
+	
+	function getPaddingBottomRight()
 	{
-		_map.fitBounds(
-			_layerMarkers.getBounds().pad(0.1),
-			$(window).width() > WIDTH_THRESHOLD && $("div#results-container").css("display") !== "none" ? 
-				{
-					paddingBottomRight: [
-						$("div#results-container").outerWidth() + parseInt($("#results-container").css("right")), 
-						0
-					]
-				} : 
-				null					
-		);		
+		var paddingBottomRight = null;
+		if ($(window).width() > WIDTH_THRESHOLD && $("div#results-container").css("display") !== "none") {
+		 	paddingBottomRight = 
+				[
+					$("div#results-container").outerWidth() + parseInt($("#results-container").css("right")), 
+					0
+				]; 
+		}
+		return paddingBottomRight;
 	}
-	*/
 
 	function loadResults(salad)
 	{
