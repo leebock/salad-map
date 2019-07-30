@@ -118,8 +118,9 @@
 			);			
 			$("select#creations").change(select_onChange);
 			
-			_table = new Table($("ul#results").get(0));
-			$(_table).on("ingredientSelect", table_onIngredientSelect);
+			_table = $(new Table($("ul#results").get(0)))
+				.on("ingredientSelect", table_onIngredientSelect)
+				.get(0);
 						
 			// one time check to see if touch is being used
 
