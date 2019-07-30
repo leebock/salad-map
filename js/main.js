@@ -167,10 +167,7 @@
 		var providers = _providers;
 		var ingredients = _ingredients;
 		if (event.target.value.toLowerCase() !== "all providers") {
-			var salad = $.grep(
-				_creations, 
-				function(value){return value.getName() === event.target.value;}
-			).shift();
+			var salad = SelectionMachine.selectCreationByName(_creations, event.target.value);
 			providers = SelectionMachine.selectProvidersForCreation(_providers, salad);
 			ingredients = SelectionMachine.selectIngredientsForCreation(_ingredients, salad);
 			$("div#results-container").css("display", "flex");			

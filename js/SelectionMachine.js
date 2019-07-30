@@ -44,3 +44,11 @@ SelectionMachine.selectIngredientsForCreation = function(ingredients, salad)
         }
     );    
 };
+
+SelectionMachine.selectCreationByName = function(creations, name)
+{
+    return $.grep(
+        creations, 
+        function(value){return value.getName() === name;}
+    ).shift();
+};
