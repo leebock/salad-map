@@ -93,6 +93,7 @@
         "SocialButtonBar": false,
         "Provider": false,
         "Ingredient": false,
-        "Creation": false
+        "Creation": false,
+        "Table": false
  	}        // additional predefined global variables
 }

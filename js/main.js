@@ -12,7 +12,8 @@
 	var SPREADSHEET_URL_CREATIONS = "resources/data/creations.csv";
 
 	var _map;
-
+	var _table;
+	
 	var _providers;
 	var _ingredients;
 	var _creations;
@@ -117,6 +118,9 @@
 				}
 			);			
 			$("select#creations").change(select_onChange);
+			
+			_table = new Table($("ul#results").get(0));
+			$(_table).on("ingredientSelect", table_onIngredientSelect);
 						
 			// one time check to see if touch is being used
 
@@ -165,6 +169,17 @@
 				}
 			).shift()
 		).addClass("selected");
+	}
+	
+	function table_onIngredientSelect(event, ingredient) 
+	{
+		var provider = $.grep(
+			_providers,
+			function(value) {
+				return $.inArray(value.getName(), ingredient.getProviders()) > -1;
+			}
+		).shift(); // todo: handle multiples
+		_map.selectProvider(provider);		
 	}
 
 	function select_onChange(event) {
@@ -238,62 +253,19 @@
 
 	function loadResults(salad)
 	{
-		$("ul#results").empty();
+
 		$("div#results-container div#preface").html(
 			"The <b>"+salad.getName()+"</b> salad "+
 			"consists of the following ingredients:"
 		);
-
-		$.each(
-			salad.getIngredients(), 
-			function(index, ingredient) {
-				ingredient = $.grep(
-					_ingredients, 
-					function(value){return value.getName() === ingredient;}
-				).shift();
-				$("<li>")
-					.addClass(
-						"category-"+ingredient.getCategory().toLowerCase().replace("/","-")+
-						(ingredient.getProviders().length ? " clickable" : "")
-					)
-					.append(
-						ingredient.getProviders().length ?
-						$("<a>")
-							.append(ingredient.getName())
-							.attr("href", "#") :
-						$("<span>").append(ingredient.getName()+" *")
-					)
-					.appendTo($("ul#results"));				
-			}
+		
+		_table.load(
+			$.grep(
+				_ingredients, 
+				function(value){return $.inArray(value.getName(),salad.getIngredients()) > -1;}
+			)			
 		);
 
-		$("ul#results li a").click(
-			function(event) {
-				$("ul#results li").removeClass("selected");
-				$(this).parent().addClass("selected");
-				var ingredient =  $.grep(
-					_ingredients, 
-					function(value) {
-						return value.getName() === $(event.target).text();
-					}
-				).shift();
-				var provider = $.grep(
-					_providers,
-					function(value) {
-						return $.inArray(value.getName(), ingredient.getProviders()) > -1;
-					}
-				).shift(); // todo: handle multiples
-
-				L.popup({closeButton: false, offset: L.point(0, -25)})
-			    .setLatLng(provider.getLatLng())
-			    .setContent(
-			    	"<b>"+provider.getName()+"</b>"+
-			    	"<br />"+ingredient.getName()
-			    )
-			    .openOn(_map);		
-
-			}
-		);
 	}
 
 })();

@@ -85,6 +85,28 @@ L.SaladMap = L.Map.extend({
       this._paddingBottomRight ? {paddingBottomRight: this._paddingBottomRight} : null
     );    
   },
+  
+  selectProvider: function(provider)
+  {
+      var ingredients = this._ingredients;
+
+      L.popup({closeButton: false, offset: L.point(0, -25)})
+      .setLatLng(provider.getLatLng())
+      .setContent(
+          "<b>"+provider.getName()+"</b>"+
+          "<br />"+
+          $.map(
+            $.grep(
+              ingredients, 
+              function(ingredient) {
+                return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
+              }
+            ),
+            function(value){return value.getName();}
+          )          
+      )
+      .openOn(this);      
+  },
 
   /*************************************************/
   /************* "PRIVATE" FUNCTIONS ***************/
