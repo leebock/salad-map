@@ -171,36 +171,14 @@
 				_creations, 
 				function(value){return value.getName() === event.target.value;}
 			).shift();
-			providers = $.grep(
-				providers, 
-				function(provider){
-					return $.grep(
-						provider.getProducts(), 
-						function(product) {
-							return $.inArray(product, salad.getIngredients())  > -1;
-						}
-					).length;
-				}
-			);
-			ingredients = $.grep(
-				_ingredients, 
-				function(ingredient) {
-					return salad.getIngredients().indexOf(ingredient.getName()) > -1;
-				}
-			);
-
+			providers = SelectionMachine.selectProvidersForCreation(_providers, salad);
+			ingredients = SelectionMachine.selectIngredientsForCreation(_ingredients, salad);
 			$("div#results-container").css("display", "flex");			
 			$("div#results-container div#preface").html(
 				"The <b>"+salad.getName()+"</b> salad "+
 				"consists of the following ingredients:"
 			);
-			
-			_table.load(
-				$.grep(
-					_ingredients, 
-					function(value){return $.inArray(value.getName(),salad.getIngredients()) > -1;}
-				)			
-			);
+			_table.load(ingredients);
 		} else {
 			$("div#results-container").hide();			
 		}
