@@ -212,7 +212,17 @@
 			);
 
 			$("div#results-container").css("display", "flex");			
-			loadResults(salad);
+			$("div#results-container div#preface").html(
+				"The <b>"+salad.getName()+"</b> salad "+
+				"consists of the following ingredients:"
+			);
+			
+			_table.load(
+				$.grep(
+					_ingredients, 
+					function(value){return $.inArray(value.getName(),salad.getIngredients()) > -1;}
+				)			
+			);
 		} else {
 			$("div#results-container").hide();			
 		}
@@ -249,23 +259,6 @@
 				]; 
 		}
 		return paddingBottomRight;
-	}
-
-	function loadResults(salad)
-	{
-
-		$("div#results-container div#preface").html(
-			"The <b>"+salad.getName()+"</b> salad "+
-			"consists of the following ingredients:"
-		);
-		
-		_table.load(
-			$.grep(
-				_ingredients, 
-				function(value){return $.inArray(value.getName(),salad.getIngredients()) > -1;}
-			)			
-		);
-
 	}
 
 })();
