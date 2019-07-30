@@ -41,3 +41,8 @@ Table.prototype.load = function(ingredients) {
     );
         
 };
+
+Table.prototype.clearSelected = function()
+{
+    $(this._ul).children("li").removeClass("selected");
+};

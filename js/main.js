@@ -90,9 +90,8 @@
 			)
 				.addLayer(L.esri.basemapLayer("Topographic"))
 				.addControl(L.control.attribution({position: 'bottomleft'}))
-				.on("click", onMapClick)
-				.on("moveend", onExtentChange)
-				.on("providerSelect", onProviderSelect);
+				.on("click", map_onMapClick)
+				.on("providerSelect", map_onProviderSelect);
 
 			if (!L.Browser.mobile) {
 				L.easyButton({
@@ -141,15 +140,15 @@
 	********************** EVENTS that affect selection ************************
 	***************************************************************************/
 
-	function onMapClick(e)
+	function map_onMapClick(e)
 	{
-		$("ul#results li").removeClass("selected");		
+		_table.clearSelected();
 	}
 	
-	function onProviderSelect(provider)
+	function map_onProviderSelect(provider)
 	{
 		var ingredients = _ingredients;
-		$("ul#results li").removeClass("selected");
+		_table.clearSelected();
 		$(
 			$.grep(
 				$("ul#results li"),
@@ -240,10 +239,6 @@
 	**************************** EVENTS (other) ********************************
 	***************************************************************************/
 
-	function onExtentChange()
-	{
-	}
-	
 	/***************************************************************************
 	******************************** FUNCTIONS *********************************
 	***************************************************************************/
