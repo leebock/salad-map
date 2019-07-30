@@ -46,3 +46,22 @@ Table.prototype.clearSelected = function()
 {
     $(this._ul).children("li").removeClass("selected");
 };
+
+Table.prototype.selectIngredients = function(ingredients)
+{
+    var ul = this._ul;
+    $(
+        $.grep(
+            $(ul).children("li"),
+            function(li) {
+                return $.inArray(
+                    $(li).find("a").text(), 			
+                    $.map(
+                        ingredients,
+                        function(value){return value.getName();}
+                    )
+                ) > -1;
+            }
+        ).shift()
+    ).addClass("selected");
+};

@@ -149,25 +149,14 @@
 	{
 		var ingredients = _ingredients;
 		_table.clearSelected();
-		$(
+		_table.selectIngredients(
 			$.grep(
-				$("ul#results li"),
-				function(li) {
-					return $.inArray(
-						$(li).find("a").text(), 			
-				    	$.map(
-					    	$.grep(
-					    		ingredients, 
-					    		function(ingredient) {
-					    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-					    		}
-					    	),
-					    	function(value){return value.getName();}
-				    	)
-					) > -1;
+				ingredients, 
+				function(ingredient) {
+					return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
 				}
-			).shift()
-		).addClass("selected");
+			)			
+		);
 	}
 	
 	function table_onIngredientSelect(event, ingredient) 
