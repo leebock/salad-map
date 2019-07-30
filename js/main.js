@@ -90,7 +90,8 @@
 				.addLayer(L.esri.basemapLayer("Topographic"))
 				.addControl(L.control.attribution({position: 'bottomleft'}))
 				.on("click", onMapClick)
-				.on("moveend", onExtentChange);
+				.on("moveend", onExtentChange)
+				.on("providerSelect", onProviderSelect);
 
 			if (!L.Browser.mobile) {
 				L.easyButton({
@@ -140,6 +141,31 @@
 	{
 		$("ul#results li").removeClass("selected");		
 	}
+	
+	function onProviderSelect(provider)
+	{
+		var ingredients = _ingredients;
+		$("ul#results li").removeClass("selected");
+		$(
+			$.grep(
+				$("ul#results li"),
+				function(li) {
+					return $.inArray(
+						$(li).find("a").text(), 			
+				    	$.map(
+					    	$.grep(
+					    		ingredients, 
+					    		function(ingredient) {
+					    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
+					    		}
+					    	),
+					    	function(value){return value.getName();}
+				    	)
+					) > -1;
+				}
+			).shift()
+		).addClass("selected");
+	}
 
 	function select_onChange(event) {
 		
@@ -176,40 +202,14 @@
 			$("div#results-container").hide();			
 		}
 
+		/* necessary for small screens, because map actually changes size 
+			as result of expanding list div */
+
 		_map.invalidateSize();
 		_map.setPaddingBottomRight(getPaddingBottomRight());
 		_map.loadData(providers, ingredients);
 
-
 	}
-
-	/*
-	function onMarkerClick(e)
-	{
-
-		$("ul#results li").removeClass("selected");
-		$(
-			$.grep(
-				$("ul#results li"),
-				function(li) {
-					return $.inArray(
-						$(li).find("a").text(), 			
-				    	$.map(
-					    	$.grep(
-					    		ingredients, 
-					    		function(ingredient) {
-					    			return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-					    		}
-					    	),
-					    	function(value){return value.getName();}
-				    	)
-					) > -1;
-				}
-			).shift()
-		).addClass("selected");
-
-	}
-	*/
 
 	/***************************************************************************
 	**************************** EVENTS (other) ********************************

@@ -1,6 +1,5 @@
 L.SaladMap = L.Map.extend({
 
-
   initialize: function(div, options, providers, ingredients, paddingBottomRight)
   {
 
@@ -28,12 +27,14 @@ L.SaladMap = L.Map.extend({
     function onMarkerClick(e)
     {
 
-      $(".leaflet-tooltip").remove();
+        var provider = $.grep(
+          self._providers, 
+          function(value){return value.getID() === e.layer.key;}
+        ).shift();
 
-      var provider = $.grep(
-        self._providers, 
-        function(value){return value.getID() === e.layer.key;}
-      ).shift();
+        self.fire("providerSelect", provider);
+
+      $(".leaflet-tooltip").remove();
 
       var ingredients = self._ingredients;
 
