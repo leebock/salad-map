@@ -40,23 +40,10 @@ L.SaladMap = L.Map.extend({
 
       L.popup({closeButton: false, offset: L.point(0, -25)})
         .setLatLng(provider.getLatLng())
-        .setContent(
-          "<b>"+provider.getName()+"</b>"+
-          "<br />"+
-          $.map(
-            $.grep(
-              ingredients, 
-              function(ingredient) {
-                return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-              }
-            ),
-            function(value){return value.getName();}
-          )
-        )
-        .openOn(self);    
-
+        .setContent(self._createContentHTML(provider, ingredients))
+        .openOn(self);
+            
     }
-
 
   },
 
@@ -90,28 +77,38 @@ L.SaladMap = L.Map.extend({
   selectProvider: function(provider)
   {
       var ingredients = this._ingredients;
-
       L.popup({closeButton: false, offset: L.point(0, -25)})
       .setLatLng(provider.getLatLng())
-      .setContent(
-          "<b>"+provider.getName()+"</b>"+
-          "<br />"+
-          $.map(
-            $.grep(
-              ingredients, 
-              function(ingredient) {
-                return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
-              }
-            ),
-            function(value){return value.getName();}
-          )          
-      )
+      .setContent(this._createContentHTML(provider, ingredients))
       .openOn(this);      
   },
 
   /*************************************************/
   /************* "PRIVATE" FUNCTIONS ***************/
   /*************************************************/
+
+  _createContentHTML: function(provider, ingredients)
+  {  
+      return $("<div>")
+      .append($("<span>").html("<b>"+provider.getName()+"</b>"))
+      .append($("<br>"))
+      .append($("<span>").html(provider.getCity()+", "+provider.getState()))
+      .append($("<br>"))
+      .append(
+          $("<span>").html(
+              $.map(
+                $.grep(
+                  ingredients, 
+                  function(ingredient) {
+                    return $.inArray(provider.getName(), ingredient.getProviders()) > -1;
+                  }
+                ),
+                function(value){return value.getName();}
+            ).join(",")
+          )
+      )
+      .html()      
+  },
 
   _loadMarkers: function(providers)
   {
@@ -129,7 +126,7 @@ L.SaladMap = L.Map.extend({
             riseOnHover: true
           }
         )
-          .bindTooltip(record.getName())
+          .bindTooltip(record.getName()+", "+record.getCity()+", "+record.getState())
           .addTo(self._layerMarkers)
           .key = record.getID();
 
