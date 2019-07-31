@@ -22,7 +22,7 @@ Provider.prototype.getCity = function()
 Provider.prototype.getState = function()
 {
 	return this._json.State;
-}
+};
 
 Provider.prototype.getLatLng = function()
 {

@@ -107,7 +107,7 @@ L.SaladMap = L.Map.extend({
             ).join(",")
           )
       )
-      .html()      
+      .html();      
   },
 
   _loadMarkers: function(providers)
