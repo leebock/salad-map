@@ -221,7 +221,11 @@ div#main div#results-container ul#results {
   -moz-padding-start: 0px;
   -moz-padding-end: 0px;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 div#main div#results-container ul#results li {
   padding: 10px;
@@ -238,6 +242,7 @@ div#main div#results-container ul#results li:last-child {
 }
 div#main div#results-container ul#results li.clickable {
   background-color: #efefef;
+  order: -1;
 }
 div#main div#results-container ul#results li.clickable:hover {
   background-color: aliceblue;
@@ -254,14 +259,10 @@ div#main div#results-container ul#results li.selected.category-dairy {
 div#main div#results-container ul#results li.selected.category-other {
   background-color: rgba(139, 0, 0, 0.4);
 }
-div#main div#results-container ul#results li a {
+div#main div#results-container ul#results li button {
+  cursor: pointer;
   color: black;
-  text-decoration: none;
-  display: flex;
-}
-div#main div#results-container ul#results li a span:nth-child(1) {
-  flex: 1;
-  font-weight: bold;
+  font-size: 20px;
 }
 
 /*div#main*/

@@ -121,7 +121,6 @@
 			$.each(
 				_creations, 
 				function(index, value) {
-					console.log(index, value);
 					$(optgroup).append($("<option>").html(value.getName()));
 				}
 			);			

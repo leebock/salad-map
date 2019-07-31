@@ -190,7 +190,12 @@ div#main {
       -moz-padding-end: 0px;
 
       overflow-y: auto;
+      overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
+      
+      position: relative;
+      display: flex;
+      flex-direction: column;
 
       li {
         padding: 10px;
@@ -206,6 +211,7 @@ div#main {
         }
         &.clickable {
           background-color: #efefef;
+          order: -1;
           &:hover {
             background-color: aliceblue;
           }
@@ -222,14 +228,10 @@ div#main {
             background-color: rgba(139,0,0,0.4);
           }
         }        
-        a {
+        button {
+          cursor: pointer;
           color: black;
-          text-decoration: none;
-          display: flex;
-          span:nth-child(1) {
-            flex: 1;
-            font-weight: bold;
-          }
+          font-size: 20px;
         }
       }
 

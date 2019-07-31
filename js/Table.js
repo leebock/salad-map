@@ -17,16 +17,14 @@ Table.prototype.load = function(ingredients) {
                 )
                 .append(
                     ingredient.getProviders().length ?
-                    $("<a>")
-                        .append(ingredient.getName())
-                        .attr("href", "#") :
+                    $("<button>").append(ingredient.getName()) :
                     $("<span>").append(ingredient.getName()+" *")
                 )
                 .appendTo($(ul));				
         }
     );
 
-    $(ul).find("li a").click(
+    $(ul).find("li button").click(
         function() {
             $(ul).children("li").removeClass("selected");
             $(this).parent().addClass("selected");
@@ -39,7 +37,9 @@ Table.prototype.load = function(ingredients) {
             $(self).trigger("ingredientSelect", [ingredient]);
         }
     );
-        
+    
+    $(ul).animate({scrollTop: 0}, 'slow');
+
 };
 
 Table.prototype.clearSelected = function()
@@ -51,18 +51,20 @@ Table.prototype.selectIngredients = function(ingredients)
 {
     this.clearSelected();
     var ul = this._ul;
-    $(
-        $.grep(
-            $(ul).children("li"),
-            function(li) {
-                return $.inArray(
-                    $(li).find("a").text(), 			
-                    $.map(
-                        ingredients,
-                        function(value){return value.getName();}
-                    )
-                ) > -1;
-            }
-        ).shift()
-    ).addClass("selected");
+    var li = $.grep(
+        $(ul).children("li"),
+        function(li) {
+            return $.inArray(
+                $(li).find("button").text(), 			
+                $.map(
+                    ingredients,
+                    function(value){return value.getName();}
+                )
+            ) > -1;
+        }
+    ).shift();
+    if (li) {
+        $(li).addClass("selected");
+        $(ul).animate({scrollTop: $(li).position().top}, 'slow');
+    }
 };
