@@ -17,28 +17,28 @@ Table.prototype.load = function(ingredients) {
                 )
                 .append(
                     ingredient.getProviders().length ?
-                    $("<button>").append(ingredient.getName()) :
-                    $("<span>").append(ingredient.getName()+" *")
+                    $("<button>")
+                        .data("ingredient", ingredient)
+                        .append($("<span>").html(ingredient.getName()))
+                        .append("<br>")
+                        .append($("<span>").html(ingredient.getProviders().shift()))
+                        .append("<br>")
+                        .append($("<span>").html("City, State"))
+                        .click(onButtonClick) :
+                    $("<span>")
+                        .append($("<p>").html(ingredient.getName()+" *"))
                 )
                 .appendTo($(ul));				
         }
     );
-
-    $(ul).find("li button").click(
-        function() {
-            $(ul).children("li").removeClass("selected");
-            $(this).parent().addClass("selected");
-            var ingredient =  $.grep(
-                ingredients, 
-                function(value) {
-                    return value.getName() === $(event.target).text();
-                }
-            ).shift(); // todo: handle multiples
-            $(self).trigger("ingredientSelect", [ingredient]);
-        }
-    );
     
     $(ul).animate({scrollTop: 0}, 'slow');
+
+    function onButtonClick(event) {
+        $(ul).children("li").removeClass("selected");
+        $(this).parent().addClass("selected");
+        $(self).trigger("ingredientSelect", [$(event.target).data("ingredient")]);
+    }
 
 };
 
@@ -52,10 +52,10 @@ Table.prototype.selectIngredients = function(ingredients)
     this.clearSelected();
     var ul = this._ul;
     var li = $.grep(
-        $(ul).children("li"),
+        $(ul).children("li.clickable"),
         function(li) {
             return $.inArray(
-                $(li).find("button").text(), 			
+                $(li).children("button").data("ingredient").getName(), 			
                 $.map(
                     ingredients,
                     function(value){return value.getName();}
