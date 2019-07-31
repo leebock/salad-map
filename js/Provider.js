@@ -19,6 +19,11 @@ Provider.prototype.getCity = function()
 	return this._json.City;	
 };
 
+Provider.prototype.getState = function()
+{
+	return this._json.State;
+}
+
 Provider.prototype.getLatLng = function()
 {
 	return L.latLng(this._json.Lat, this._json.Long);

@@ -183,7 +183,7 @@
 				"The <b>"+salad.getName()+"</b> salad "+
 				"consists of the following ingredients:"
 			);
-			_table.load(ingredients);
+			_table.load(ingredients, providers);
 		} else {
 			$("div#results-container").hide();			
 		}

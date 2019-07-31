@@ -3,13 +3,17 @@ function Table(ul)
     this._ul = ul;
 }
 
-Table.prototype.load = function(ingredients) {
+Table.prototype.load = function(ingredients, providers) {
     var ul = this._ul;
     var self = this;
     $(ul).empty();    
     $.each(
         ingredients,
         function(index, ingredient) {
+            var provider = SelectionMachine.selectProvidersForIngredient(
+                providers, 
+                ingredient
+            ).shift(); /* to do: handle multiples */
             $("<li>")
                 .addClass(
                     "category-"+ingredient.getCategory().toLowerCase().replace("/","-")+
@@ -21,9 +25,11 @@ Table.prototype.load = function(ingredients) {
                         .data("ingredient", ingredient)
                         .append($("<span>").html(ingredient.getName()))
                         .append("<br>")
-                        .append($("<span>").html(ingredient.getProviders().shift()))
-                        .append("<br>")
-                        .append($("<span>").html("City, State"))
+                        .append($("<span>").html(
+                            provider.getName()+", "+
+                            provider.getCity()+", "+
+                            provider.getState())
+                        )
                         .click(onButtonClick) :
                     $("<span>")
                         .append($("<p>").html(ingredient.getName()+" *"))
