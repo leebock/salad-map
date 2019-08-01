@@ -180,8 +180,7 @@
 			ingredients = SelectionMachine.selectIngredientsForCreation(_ingredients, salad);
 			$("div#results-container").css("display", "flex");			
 			$("div#results-container div#preface").html(
-				"The <b>"+salad.getName()+"</b> salad "+
-				"consists of the following ingredients:"
+				"<b>"+salad.getName()+"</b> salad ingredients:"
 			);
 			_table.load(
 				$.grep(
