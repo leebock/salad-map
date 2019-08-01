@@ -190,16 +190,20 @@
 				), 
 				providers
 			);
-			$("div#footnotes").html(
-				"Ingredients not mapped: "+
-				$.map(
-					$.grep(
-						ingredients, 
-						function(ingredient){return !ingredient.getProviders().length;}
-					),
-					function (ingredient){return ingredient.getName();}
-				).join(", ")
+			var notMapped = $.grep(
+				ingredients, 
+				function(ingredient){return !ingredient.getProviders().length;}
 			);
+			if (notMapped.length) {
+				$("div#footnotes").html(
+					"Ingredients not mapped: "+
+					$.map(
+						notMapped,
+						function (ingredient){return ingredient.getName();}
+					).join(", ")
+				);
+				$("div#footnotes").show();
+			}
 		} else {
 			$("div#results-container").hide();			
 		}
