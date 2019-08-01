@@ -16,8 +16,7 @@ Table.prototype.load = function(ingredients, providers) {
             ).shift(); /* to do: handle multiples */
             $("<li>")
                 .addClass(
-                    "category-"+ingredient.getCategory().toLowerCase().replace("/","-")+
-                    (ingredient.getProviders().length ? " clickable" : "")
+                    "category-"+ingredient.getCategory().toLowerCase().replace("/","-")
                 )
                 .append(
                     ingredient.getProviders().length ?
@@ -58,7 +57,7 @@ Table.prototype.selectIngredients = function(ingredients)
     this.clearSelected();
     var ul = this._ul;
     var li = $.grep(
-        $(ul).children("li.clickable"),
+        $(ul).children("li"),
         function(li) {
             return $.inArray(
                 $(li).children("button").data("ingredient").getName(), 			

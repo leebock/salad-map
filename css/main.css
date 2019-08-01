@@ -232,6 +232,15 @@ div#main div#results-container ul#results li {
   background-color: #e2e2e2;
   border-top-style: solid;
   border-top-width: 1px;
+  background-color: #efefef;
+}
+@media (max-height: 800px) {
+  div#main div#results-container ul#results li {
+    padding: 7px;
+  }
+}
+div#main div#results-container ul#results li:hover {
+  background-color: aliceblue;
 }
 div#main div#results-container ul#results li:first-child {
   border-top-style: none;
@@ -239,13 +248,6 @@ div#main div#results-container ul#results li:first-child {
 div#main div#results-container ul#results li:last-child {
   border-bottom-style: solid;
   border-bottom-width: 1px;
-}
-div#main div#results-container ul#results li.clickable {
-  background-color: #efefef;
-  order: -1;
-}
-div#main div#results-container ul#results li.clickable:hover {
-  background-color: aliceblue;
 }
 div#main div#results-container ul#results li.selected {
   background-color: rgba(0, 0, 255, 0.3);
@@ -269,12 +271,33 @@ div#main div#results-container ul#results li button {
   text-align: left;
   padding: 5px;
 }
+@media (max-height: 800px) {
+  div#main div#results-container ul#results li button {
+    font-size: 16px;
+  }
+}
 div#main div#results-container ul#results li button span:nth-of-type(2), div#main div#results-container ul#results li button span:nth-of-type(3) {
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
+}
+@media (max-height: 800px) {
+  div#main div#results-container ul#results li button span:nth-of-type(2), div#main div#results-container ul#results li button span:nth-of-type(3) {
+    font-size: 14px;
+  }
 }
 div#main div#results-container ul#results li button * {
   pointer-events: none;
+}
+div#main div#results-container div#footnotes {
+  padding-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+}
+@media (max-height: 800px) {
+  div#main div#results-container div#footnotes {
+    padding-top: 7px;
+    font-size: 12px;
+  }
 }
 
 /*div#main*/

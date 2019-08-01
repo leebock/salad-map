@@ -199,22 +199,22 @@ div#main {
 
       li {
         padding: 10px;
+        @media (max-height: 800px) {
+          padding: 7px;
+        }          
         background-color: #e2e2e2;
         border-top-style: solid;
         border-top-width: 1px;
+        background-color: #efefef;
+        &:hover {
+          background-color: aliceblue;
+        }
         &:first-child {
           border-top-style: none;
         }
         &:last-child {
           border-bottom-style: solid;
           border-bottom-width: 1px;
-        }
-        &.clickable {
-          background-color: #efefef;
-          order: -1;
-          &:hover {
-            background-color: aliceblue;
-          }
         }
         &.selected {
           background-color: rgba(0,0,255,0.3);
@@ -234,11 +234,17 @@ div#main {
           cursor: pointer;
           color: black;
           font-size: 20px;
+          @media (max-height: 800px) {
+            font-size: 16px;
+          }          
           width: 100%;
           text-align: left;
           padding: 5px;
           span:nth-of-type(2), span:nth-of-type(3) {
-            font-size: 16px;
+            font-size: 18px;
+            @media (max-height: 800px) {
+              font-size: 14px;
+            }          
             font-style: italic;
           }
           * {
@@ -247,6 +253,16 @@ div#main {
         }
       }
 
+    }
+    
+    div#footnotes {
+      padding-top: 10px;
+      font-size: 14px;
+      font-style: italic;
+      @media (max-height: 800px) {
+        padding-top: 7px;
+        font-size: 12px;
+      }
     }
 
   } /* results-container */

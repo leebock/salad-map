@@ -183,7 +183,23 @@
 				"The <b>"+salad.getName()+"</b> salad "+
 				"consists of the following ingredients:"
 			);
-			_table.load(ingredients, providers);
+			_table.load(
+				$.grep(
+					ingredients, 
+					function(ingredient){return ingredient.getProviders().length;}
+				), 
+				providers
+			);
+			$("div#footnotes").html(
+				"Ingredients not mapped: "+
+				$.map(
+					$.grep(
+						ingredients, 
+						function(ingredient){return !ingredient.getProviders().length;}
+					),
+					function (ingredient){return ingredient.getName();}
+				).join(", ")
+			);
 		} else {
 			$("div#results-container").hide();			
 		}
