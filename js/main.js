@@ -228,13 +228,12 @@
 	{
 		var paddingBottomRight = null;
 		if (
-			$(window).width() > WIDTH_THRESHOLD && 
-			$("div#results-container").css("display") !== "none"
+			$(window).width() > WIDTH_THRESHOLD
 		) {
 		 	paddingBottomRight = 
 				[
-					$("div#results-container").outerWidth() + 
-					parseInt($("#results-container").css("right")), 
+					$("div#search-container").outerWidth() + 
+					parseInt($("#search-container").css("right")), 
 					0
 				]; 
 		}
