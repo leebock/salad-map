@@ -43,6 +43,10 @@ Table.prototype.load = function(ingredients, providers) {
         $(ul).children("li").removeClass("selected");
         $(this).parent().addClass("selected");
         $(self).trigger("ingredientSelect", [$(event.target).data("ingredient")]);
+        $(ul).animate(
+            {scrollTop: $(this).parent().offset().top - $(ul).offset().top + $(ul).scrollTop()}, 
+            'slow'
+        );        
     }
 
 };
