@@ -70,6 +70,9 @@ Table.prototype.selectIngredients = function(ingredients)
     ).shift();
     if (li) {
         $(li).addClass("selected");
-        $(ul).animate({scrollTop: $(li).position().top}, 'slow');
+        $(ul).animate(
+            {scrollTop: $(li).offset().top - $(ul).offset().top + $(ul).scrollTop()}, 
+            'slow'
+        );        
     }
 };
