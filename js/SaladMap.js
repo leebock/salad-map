@@ -42,7 +42,9 @@ L.SaladMap = L.Map.extend({
         .setLatLng(provider.getLatLng())
         .setContent(self._createContentHTML(provider, ingredients))
         .openOn(self);
-            
+        
+        self._specialPanTo(provider.getLatLng());
+                    
     }
 
   },
@@ -81,11 +83,24 @@ L.SaladMap = L.Map.extend({
       .setLatLng(provider.getLatLng())
       .setContent(this._createContentHTML(provider, ingredients))
       .openOn(this);      
+      this._specialPanTo(provider.getLatLng());
   },
 
   /*************************************************/
   /************* "PRIVATE" FUNCTIONS ***************/
   /*************************************************/
+
+    _specialPanTo: function(latLng)
+    {
+        if (this._paddingBottomRight) {
+            latLng = this.containerPointToLatLng(
+                this.latLngToContainerPoint(latLng).add(
+                    [this._paddingBottomRight[0]/2, this._paddingBottomRight[1]/2]
+                )
+            );
+        }
+        this.panTo(latLng, {animate: true, duration: 1});
+    },
 
   _createContentHTML: function(provider, ingredients)
   {  
