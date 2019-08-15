@@ -103,9 +103,7 @@ a {
 
 div#main {
   position: relative;
-  flex-grow: 1;
-  flex-shrink: 1;
-  order: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   /* results-container */
