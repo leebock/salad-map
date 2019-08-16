@@ -204,6 +204,8 @@
 					).join(", ")
 				);
 				$("div#footnotes").show();
+			} else {
+				$("div#footnotes").empty().hide();
 			}
 		} else {
 			$("div#results-container").hide();			
