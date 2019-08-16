@@ -8,7 +8,7 @@ Table.prototype.load = function(ingredients, providers) {
     var self = this;
     $(ul).empty();    
     $.each(
-        ingredients,
+        ingredients.sort(function(a,b){return a.getCategory() < b.getCategory() ? -1 : 0;}),
         function(index, ingredient) {
             var provider = SelectionMachine.selectProvidersForIngredient(
                 providers, 

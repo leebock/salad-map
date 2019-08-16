@@ -240,7 +240,6 @@ div#main div#results-container ul#results li {
 }
 div#main div#results-container ul#results li.category-fruit-vegetable {
   border-left-color: rgba(0, 100, 0, 0.6);
-  order: -1;
 }
 div#main div#results-container ul#results li.category-fruit-vegetable:hover {
   background-color: rgba(0, 100, 0, 0.3);
@@ -253,7 +252,6 @@ div#main div#results-container ul#results li.category-fruit-vegetable.selected b
 }
 div#main div#results-container ul#results li.category-dairy {
   border-left-color: rgba(255, 165, 0, 0.6);
-  order: 1;
 }
 div#main div#results-container ul#results li.category-dairy:hover {
   background-color: rgba(255, 165, 0, 0.3);
