@@ -21,7 +21,9 @@
 	$(document).ready(function() {
 
 		$("html body").addClass(GLOBAL_CLASS_INTRO);
-		new SocialButtonBar();
+		if (!inIframe()) {
+			new SocialButtonBar();
+		}
 
 		Papa.parse(
 			SPREADSHEET_URL_CREATIONS, 
@@ -223,6 +225,14 @@
 	/***************************************************************************
 	******************************** FUNCTIONS *********************************
 	***************************************************************************/
+
+	function inIframe () {
+		try {
+			return window.self !== window.top;
+		} catch (e) {
+			return true;
+		}
+	}		
 	
 	function getPaddingBottomRight()
 	{
