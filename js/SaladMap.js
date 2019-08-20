@@ -53,6 +53,16 @@ L.SaladMap = L.Map.extend({
   /******************* METHODS *********************/
   /*************************************************/
 
+  zoomIn: function(zoomDelta, options)
+  {
+      this._zoomHandler(this.getZoom()+zoomDelta);
+  }, 
+
+  zoomOut: function(zoomDelta, options)
+  {
+    this._zoomHandler(this.getZoom()-zoomDelta);
+  },
+
   loadData: function(providers, ingredients)
   {
     this.closePopup();
@@ -89,6 +99,21 @@ L.SaladMap = L.Map.extend({
   /*************************************************/
   /************* "PRIVATE" FUNCTIONS ***************/
   /*************************************************/
+
+  _zoomHandler: function(targetZoom)
+  {
+      var targetPoint = this.project(this.getCenter(), targetZoom);
+      var offset;
+      if (targetZoom < this.getZoom()) {
+          offset = [this._paddingBottomRight[0]/4, this._paddingBottomRight[1]/4];
+          targetPoint = targetPoint.add(offset);			
+      } else {
+          offset = [this._paddingBottomRight[0]/2, this._paddingBottomRight[1]/2];
+          targetPoint = targetPoint.subtract(offset);
+      }
+      var targetLatLng = this.unproject(targetPoint, targetZoom);
+      this.setView(targetLatLng, targetZoom);      
+  },
 
     _specialPanTo: function(latLng)
     {
