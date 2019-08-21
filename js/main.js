@@ -208,6 +208,7 @@
 				$("div#footnotes").empty().hide();
 			}
 		} else {
+			$("html body").addClass(GLOBAL_CLASS_INTRO);
 			$("div#results-container").hide();			
 		}
 

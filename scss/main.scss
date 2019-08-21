@@ -37,6 +37,19 @@ body {
   position: relative;
 }
 
+ul {
+  list-style-type: none;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  -moz-padding-start: 0px;
+  -moz-padding-end: 0px;
+}
+
 /* hides adobe analytics white stripe */
 
 div.adsbox {
@@ -101,7 +114,7 @@ div#main {
       border: none;
     }
 
-    p:nth-child(1) {
+    p {
       display: none;
       margin-top: 2px;
       margin-bottom: 18px;
@@ -113,6 +126,40 @@ div#main {
       }
       #{$GLOBAL-CLASS-INTRO} & {
         display: block;
+      }
+    }
+    
+    ul {
+      display: none;
+      #{$GLOBAL-CLASS-INTRO} & {
+        margin-top: 10px;
+        display: flex;
+        margin-bottom: 10px;
+      }
+      font-size: 14px;
+      li {
+        display: flex;
+        div.legend-item {
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+          margin-left: 10px;
+        }
+        &:nth-of-type(1) {
+          div.legend-item {
+            background-color: rgba(114,176,38,1);
+          }
+        }
+        &:nth-of-type(2) {
+          div.legend-item {
+            background-color: rgba(246,151,48,1);
+          }
+        }
+        &:nth-of-type(3) {
+          div.legend-item {
+            background-color: rgba(162,51,54,1);
+          }
+        }
       }
     }
 
@@ -176,17 +223,6 @@ div#main {
     ul#results {
 
       flex-shrink: 1;
-
-      list-style-type: none;
-      -webkit-margin-before: 0px;
-      -webkit-margin-after: 0px;
-      -webkit-margin-start: 0px;
-      -webkit-margin-end: 0px;
-      -webkit-padding-start: 0px;
-      -moz-margin-start: 0px;
-      -moz-margin-end: 0px;
-      -moz-padding-start: 0px;
-      -moz-padding-end: 0px;
 
       overflow-y: auto;
       overflow-x: hidden;

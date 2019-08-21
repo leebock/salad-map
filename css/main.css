@@ -30,6 +30,19 @@ body {
   position: relative;
 }
 
+ul {
+  list-style-type: none;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  -moz-padding-start: 0px;
+  -moz-padding-end: 0px;
+}
+
 /* hides adobe analytics white stripe */
 div.adsbox {
   display: none;
@@ -142,7 +155,7 @@ div#main div#search-container {
     border: none;
   }
 }
-div#main div#search-container p:nth-child(1) {
+div#main div#search-container p {
   display: none;
   margin-top: 2px;
   margin-bottom: 18px;
@@ -150,13 +163,40 @@ div#main div#search-container p:nth-child(1) {
   font-size: 24px;
 }
 @media (max-width: 768px) {
-  div#main div#search-container p:nth-child(1) {
+  div#main div#search-container p {
     font-size: 16px;
     margin-bottom: 10px;
   }
 }
-.intro div#main div#search-container p:nth-child(1) {
+.intro div#main div#search-container p {
   display: block;
+}
+div#main div#search-container ul {
+  display: none;
+  font-size: 14px;
+}
+.intro div#main div#search-container ul {
+  margin-top: 10px;
+  display: flex;
+  margin-bottom: 10px;
+}
+div#main div#search-container ul li {
+  display: flex;
+}
+div#main div#search-container ul li div.legend-item {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+div#main div#search-container ul li:nth-of-type(1) div.legend-item {
+  background-color: #72b026;
+}
+div#main div#search-container ul li:nth-of-type(2) div.legend-item {
+  background-color: #f69730;
+}
+div#main div#search-container ul li:nth-of-type(3) div.legend-item {
+  background-color: #a23336;
 }
 div#main div#search-container select {
   border: none;
@@ -209,16 +249,6 @@ div#main div#results-container #preface {
 }
 div#main div#results-container ul#results {
   flex-shrink: 1;
-  list-style-type: none;
-  -webkit-margin-before: 0px;
-  -webkit-margin-after: 0px;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-start: 0px;
-  -moz-margin-start: 0px;
-  -moz-margin-end: 0px;
-  -moz-padding-start: 0px;
-  -moz-padding-end: 0px;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
